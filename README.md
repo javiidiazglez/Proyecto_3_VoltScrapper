@@ -3,7 +3,15 @@
 
 <div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiaz.github.io/Proyecto_3_Scrapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)]## 👥 Equipo
+
+**TanDEM - Grupo 2**
+
+- José Javier Díaz González
+- Laura del Carmen Ilarraza Prendes  
+- Andrea San Román Río
+- Noemi Martin Garcia
+- Elvis Ebudo Nwaigweiaz.github.io/Proyecto_3_Scrapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
 
 </div>
 
@@ -86,6 +94,8 @@ Este proyecto incluye un sistema de testing unificado y completo:
 - **Pruebas de accesibilidad**: Estándares básicos
 - **Pruebas de rendimiento**: Optimización de tamaño
 
+> 📚 **Para más documentación sobre el testing**: [Ver documentación completa de testing](./tests/README.md)
+
 ### Ejecutar las pruebas
 ```bash
 # Ejecutar TODAS las pruebas y generar reportes
@@ -107,6 +117,8 @@ node tests/coverage-report.js
 - ✅ **Accesibilidad**: Estándares básicos cumplidos
 - ✅ **Rendimiento**: Tamaño optimizado (19.51 KB)
 - ✅ **Cobertura**: 91.1% promedio
+
+📚 **[Ver documentación completa de testing](./tests/README.md)**
 
 ## 📱 Guía de Uso
 
@@ -183,32 +195,15 @@ El archivo `_config.yml` contiene toda la configuración necesaria para Jekyll y
 
 ### 🎯 **Proyecto 3 - TanDEM Grupo 2**
 
-![TanDEM Team](./team-tandem.svg)
-
-</div>
-
-| 👨‍💻 **Desarrollador** | 🚀 **Rol Principal** | 🎯 **Especialización** |
-|----------------------|---------------------|------------------------|
-| **José Javier Díaz González** | 🔥 Team Lead & Full Stack | Arquitectura & Liderazgo |
-| **Elvis Ebudo Nwaigwe** | 💻 Frontend Developer | UI/UX & Interfaz |
-| **Laura del Carmen Ilarraza Prendes** | 🎨 Frontend Developer | Design & Responsive |
-| **Andrea San Román Río** | 🔧 Backend Developer | Testing & Integración |
-| **Noemi Martin Garcia** | 📊 QA Engineer | Documentation & Calidad |
-
-### 🏆 **Contribuciones del Equipo**
-<div align="center">
-
-| 📊 **Área** | 🎯 **Resultado** | ✅ **Estado** |
-|-------------|------------------|---------------|
-| **🎨 Frontend** | Interfaz moderna y responsiva | ✅ Completo |
-| **🔧 Backend** | Integración APIs y webhooks | ✅ Completo |
-| **🧪 Testing** | 31 pruebas automatizadas | ✅ 100% éxito |
-| **📚 Documentación** | README y docs técnicas | ✅ Completo |
-| **🚀 DevOps** | Jekyll + GitHub Pages | ✅ Desplegado |
-
-</div>
+**‍💻 José Javier Díaz González**  
+**�‍�💻 Laura del Carmen Ilarraza Prendes**  
+**👩‍💻 Andrea San Román Río**  
+**👩‍💻 Noemi Martin Garcia**  
+**👨‍💻 Elvis Ebudo Nwaigwe**
 
 > **💡 Filosofía del equipo**: "Código limpio, testing completo, documentación clara"
+
+</div>
 
 ## 📊 Estadísticas del Proyecto
 
