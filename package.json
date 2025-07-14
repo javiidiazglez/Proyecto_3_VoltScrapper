@@ -1,0 +1,58 @@
+{
+  "name": "proyecto-3-scrapper-tests",
+  "version": "1.0.0",
+  "description": "Tests para el Generador de Análisis Empresarial",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:html": "node tests/html-validator.js",
+    "test:css": "node tests/css-validator.js",
+    "test:accessibility": "node tests/accessibility-test.js",
+    "test:performance": "node tests/performance-test.js",
+    "test:all": "npm run test:html && npm run test:css && npm run test && npm run test:accessibility && npm run test:performance",
+    "serve": "http-server . -p 3000",
+    "start": "npm run serve"
+  },
+  "keywords": [
+    "testing",
+    "jest",
+    "html",
+    "css",
+    "javascript",
+    "accessibility",
+    "performance"
+  ],
+  "author": "Proyecto 3 - Grupo 2. TanDEM",
+  "license": "MIT",
+  "devDependencies": {
+    "axe-core": "^4.8.2",
+    "chalk": "^4.1.2",
+    "html-validator": "^6.0.1",
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "puppeteer": "^21.5.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ],
+    "collectCoverageFrom": [
+      "index.html",
+      "!node_modules/**",
+      "!tests/**"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "html",
+      "text",
+      "lcov"
+    ]
+  },
+  "dependencies": {
+    "jsdom": "^26.1.0"
+  }
+}
