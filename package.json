@@ -27,32 +27,14 @@
   "author": "Proyecto 3 - Grupo 2. TanDEM",
   "license": "MIT",
   "devDependencies": {
-    "axe-core": "^4.8.2",
-    "chalk": "^4.1.2",
-    "html-validator": "^6.0.1",
-    "http-server": "^14.1.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "puppeteer": "^21.5.0"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": [
-      "<rootDir>/tests/setup.js"
-    ],
-    "collectCoverageFrom": [
-      "index.html",
-      "!node_modules/**",
-      "!tests/**"
-    ],
-    "coverageDirectory": "coverage",
-    "coverageReporters": [
-      "html",
-      "text",
-      "lcov"
-    ]
-  },
-  "dependencies": {
-    "jsdom": "^26.1.0"
+    "puppeteer": "^21.5.0",
+    "html-validator": "^6.0.1",
+    "css-validator": "^1.0.0",
+    "axe-core": "^4.8.2",
+    "lighthouse": "^11.3.0",
+    "http-server": "^14.1.1",
+    "chalk": "^4.1.2"
   }
 }

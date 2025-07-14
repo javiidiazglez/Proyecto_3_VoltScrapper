@@ -3,7 +3,38 @@
 
 <div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiaz.github.io/Proyecto_3_Scrapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiaz.github.io/## 📊 Esta| **Jo### 🏆 **Contribuciones del Equipo**é Javier Díaz González** | 🔥 Team Lead & Full Stack | Arquitectura & Liderazgo |ísticas del Proyecto
+
+<div align="center">
+
+### 🏆 **Métricas de Rendimiento**
+
+| 📊 **Métrica** | 📈 **Valor** | 🎯 **Estado** |
+|----------------|--------------|---------------|
+| **💾 Líneas de código** | ~500 líneas | 📊 Optimizado |
+| **⚡ Tamaño total** | 19.51 KB | 🚀 Ultraligero |
+| **🧪 Pruebas** | 31/31 | ✅ 100% éxito |
+| **📊 Cobertura** | 91.1% | 🏆 Excelente |
+| **🎨 HTML Coverage** | 100% | ✨ Perfecto |
+| **💎 CSS Coverage** | 100% | ✨ Perfecto |
+| **⏱️ Tiempo de carga** | < 2 segundos | 🚀 Rápido |
+| **🌐 Compatibilidad** | Todos los navegadores | 🔄 Universal |
+
+### 📈 **Progreso del Proyecto**
+```
+🎯 DESARROLLO COMPLETO:
+==========================
+✅ Análisis y diseño    [████████████████████] 100%
+✅ Frontend desarrollo  [████████████████████] 100%
+✅ Backend integración  [████████████████████] 100%
+✅ Testing y QA         [████████████████████] 100%
+✅ Documentación        [████████████████████] 100%
+✅ Despliegue          [████████████████████] 100%
+==========================
+🏆 PROYECTO TERMINADO: 100% COMPLETO
+```
+
+</div>crapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
 
 </div>
 
@@ -31,7 +62,7 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 - **⚡ Rendimiento**: 19.51 KB optimizado
 - **🎨 Calidad**: HTML y CSS al 100%
 
-### 📈 Cobertura Detallada
+### � Cobertura Detallada
 ```
 🎯 RESUMEN DE COBERTURA FINAL:
 ==================================
@@ -106,7 +137,7 @@ node tests/coverage-report.js
 - ✅ **JavaScript**: Funcionalidades completas
 - ✅ **Accesibilidad**: Estándares básicos cumplidos
 - ✅ **Rendimiento**: Tamaño optimizado (19.51 KB)
-- ✅ **Cobertura**: 91.1% promedio
+- ✅ **Cobertura**: 81.1% promedio
 
 ## 📱 Guía de Uso
 
@@ -189,13 +220,13 @@ El archivo `_config.yml` contiene toda la configuración necesaria para Jekyll y
 
 | 👨‍💻 **Desarrollador** | 🚀 **Rol Principal** | 🎯 **Especialización** |
 |----------------------|---------------------|------------------------|
-| **José Javier Díaz González** | 🔥 Team Lead & Full Stack | Arquitectura & Liderazgo |
+| **José Javier Díaz González** | � Team Lead & Full Stack | Arquitectura & Liderazgo |
 | **Elvis Ebudo Nwaigwe** | 💻 Frontend Developer | UI/UX & Interfaz |
 | **Laura del Carmen Ilarraza Prendes** | 🎨 Frontend Developer | Design & Responsive |
 | **Andrea San Román Río** | 🔧 Backend Developer | Testing & Integración |
 | **Noemi Martin Garcia** | 📊 QA Engineer | Documentation & Calidad |
 
-### 🏆 **Contribuciones del Equipo**
+### � **Contribuciones del Equipo**
 <div align="center">
 
 | 📊 **Área** | 🎯 **Resultado** | ✅ **Estado** |
@@ -210,67 +241,42 @@ El archivo `_config.yml` contiene toda la configuración necesaria para Jekyll y
 
 > **💡 Filosofía del equipo**: "Código limpio, testing completo, documentación clara"
 
-## 📊 Estadísticas del Proyecto
+## � Estadísticas del Proyecto
 
-<div align="center">
+| Métrica | Valor | Estado |
+|---------|-------|--------|
+| **Líneas de código** | ~500 líneas | 📊 Optimizado |
+| **Tamaño total** | 19.51 KB | ⚡ Ligero |
+| **Pruebas** | 31/31 | ✅ 100% |
+| **Cobertura** | 91.1% | 🎯 Excelente |
+| **HTML Coverage** | 100% | ✨ Perfecto |
+| **CSS Coverage** | 100% | ✨ Perfecto |
+| **Tiempo de carga** | < 2s | 🚀 Rápido |
+| **Compatibilidad** | Todos los navegadores | 🌐 Universal |
 
-### 🏆 **Métricas de Rendimiento**
+## �📝 Licencia y Créditos
 
-| 📊 **Métrica** | 📈 **Valor** | 🎯 **Estado** |
-|----------------|--------------|---------------|
-| **💾 Líneas de código** | ~500 líneas | 📊 Optimizado |
-| **⚡ Tamaño total** | 19.51 KB | 🚀 Ultraligero |
-| **🧪 Pruebas** | 31/31 | ✅ 100% éxito |
-| **📊 Cobertura** | 91.1% | 🏆 Excelente |
-| **🎨 HTML Coverage** | 100% | ✨ Perfecto |
-| **💎 CSS Coverage** | 100% | ✨ Perfecto |
-| **⏱️ Tiempo de carga** | < 2 segundos | 🚀 Rápido |
-| **🌐 Compatibilidad** | Todos los navegadores | 🔄 Universal |
+**© 2025 TanDEM - Grupo 2. Todos los derechos reservados.**
 
-### 📈 **Progreso del Proyecto**
-```
-🎯 DESARROLLO COMPLETO:
-==========================
-✅ Análisis y diseño    [████████████████████] 100%
-✅ Frontend desarrollo  [████████████████████] 100%
-✅ Backend integración  [████████████████████] 100%
-✅ Testing y QA         [████████████████████] 100%
-✅ Documentación        [████████████████████] 100%
-✅ Despliegue          [████████████████████] 100%
-==========================
-🏆 PROYECTO TERMINADO: 100% COMPLETO
-```
-
-</div>
-
-## 📝 Licencia y Créditos
-
-<div align="center">
-
-### 🏆 **© 2025 TanDEM - Grupo 2**
-#### **Todos los derechos reservados**
+### 🏆 Reconocimientos
+- **Desarrollo**: Equipo TanDEM Grupo 2
+- **Testing**: Suite automatizada de 31 pruebas
+- **Despliegue**: GitHub Pages + Jekyll
+- **Calidad**: 91.1% de cobertura de código
 
 ---
 
-### 🎯 **Reconocimientos y Logros**
-- **🏅 Desarrollo**: Equipo TanDEM Grupo 2 completo
-- **🧪 Testing**: Suite automatizada de 31 pruebas (100% éxito)
-- **🚀 Despliegue**: GitHub Pages + Jekyll (automático)
-- **🏆 Calidad**: 91.1% de cobertura de código
-- **⚡ Performance**: 19.51 KB optimizado
-
----
+<div align="center">
 
 **⭐ Si te gusta este proyecto, ¡dale una estrella! ⭐**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Proyecto_3_Scrapper-181717?logo=github)](https://github.com/javiidiaz/Proyecto_3_Scrapper)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Ver_Sitio-brightgreen)](https://javiidiaz.github.io/Proyecto_3_Scrapper/)
-[![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#)
 
-**Desarrollado con ❤️ por el equipo TanDEM Grupo 2**
+**Desarrollado con ❤️ por el equipo TanDEM**
 
 </div>
 
 ---
 
-**📌 Nota importante**: Este proyecto utiliza un webhook externo para el procesamiento de datos empresariales y está completamente optimizado para producción con testing exhaustivo y documentación completa.
+**📌 Nota**: Este proyecto utiliza un webhook externo para el procesamiento de datos empresariales y está optimizado para producción con testing completo.

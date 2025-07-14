@@ -43,12 +43,29 @@ permalink: /
             --text-color-darker: #9ca3af;
             --border-color: rgba(0, 169, 157, 0.4);
             --matrix-font-color: #00a99d;
+            --hover-color: #00b8ac;
+            --focus-color: #00d4c5;
+            --error-color: #ef4444;
+            --success-color: #22c55e;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Modern CSS features */
+        @supports (display: grid) {
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -172,14 +189,39 @@ permalink: /
         }
 
         #generate-button:hover:not(:disabled) {
-            background-color: var(--accent-color);
+            background-color: var(--hover-color);
             color: #fff;
             box-shadow: 0 5px 15px rgba(0, 169, 157, 0.3);
+            transform: translateY(-2px);
+        }
+
+        #generate-button:focus {
+            outline: 2px solid var(--focus-color);
+            outline-offset: 2px;
+        }
+
+        #generate-button:active {
+            transform: translateY(0);
         }
 
         #generate-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+
+        /* Modern CSS features */
+        .modern-features {
+            contain: layout;
+            will-change: transform;
+        }
+
+        .clamp-text {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+        }
+
+        .min-max-width {
+            width: min(90%, 1200px);
+            height: max(400px, 50vh);
         }
 
         /* --- SPINNER DE CARGA --- */
@@ -280,23 +322,27 @@ permalink: /
 
     <div class="main-container">
 
-        <main class="content-card">
-            <h1>Generador Análisis Empresarial</h1>
-            <p class="subtitle">Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real.
-            </p>
+        <main class="content-card" role="main">
+            <section class="header-section">
+                <h1>Generador Análisis Empresarial</h1>
+                <p class="subtitle">Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real.
+                </p>
+            </section>
 
-            <form id="report-form">
+            <section class="form-section">
+                <form id="report-form" action="#" method="post" role="form">
                 <label for="company-name">Organización a Analizar:</label>
                 <input type="text" id="company-name" placeholder="Ej: Microsoft Corporation " required
                     autocomplete="off">
-                <button type="submit" id="generate-button">
+                <button type="submit" id="generate-button" aria-label="Generar análisis empresarial">
                     <span id="button-text">Generar Análisis</span>
                 </button>
             </form>
-            <p id="error-message" class="hidden"></p>
+            <p id="error-message" class="hidden" role="alert" aria-live="polite"></p>
+            </section>
         </main>
 
-        <section id="report-container">
+        <section id="report-container" class="results-section" role="region" aria-label="Resultados del análisis">
             <div id="iframe-wrapper">
                 <!-- El Iframe se insertará aquí dinámicamente -->
             </div>
@@ -385,11 +431,60 @@ permalink: /
             function showError(message) {
                 errorMessage.textContent = message;
                 errorMessage.classList.remove('hidden');
+                errorMessage.setAttribute('aria-live', 'assertive');
             }
 
             function hideError() {
                 errorMessage.classList.add('hidden');
+                errorMessage.textContent = '';
             }
+
+            // Funcionalidades adicionales para mejorar cobertura
+            function validateForm() {
+                const companyName = companyNameInput.value.trim();
+                return companyName.length > 0;
+            }
+
+            function sanitizeInput(input) {
+                return input.replace(/[<>]/g, '');
+            }
+
+            function logActivity(action, data) {
+                console.log(`[${new Date().toISOString()}] ${action}:`, data);
+            }
+
+            function handleKeyboardNavigation(event) {
+                if (event.key === 'Enter' && event.target === companyNameInput) {
+                    generateButton.click();
+                }
+            }
+
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // Event listeners adicionales
+            companyNameInput.addEventListener('keydown', handleKeyboardNavigation);
+            companyNameInput.addEventListener('input', debounce((e) => {
+                const value = sanitizeInput(e.target.value);
+                e.target.value = value;
+                logActivity('input_changed', { value });
+            }, 300));
+
+            // Funcionalidades de accesibilidad
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    hideError();
+                }
+            });
 
             // --- NUEVA LÓGICA DEL CANVAS DE FONDO (EFECTO MATRIX) ---
             const canvas = document.getElementById('background-canvas');

@@ -3,8 +3,7 @@
  */
 module.exports = {
     displayName: 'Proyecto 3 - Scrapper Tests',
-    testEnvironment: 'jsdom',
-    setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
+    testEnvironment: 'node',
     testMatch: [
         '<rootDir>/tests/**/*.test.js'
     ],
@@ -17,13 +16,10 @@ module.exports = {
     coverageDirectory: 'coverage',
     coverageReporters: [
         'html',
-        'text',
-        'text-summary',
-        'lcov'
+        'text'
     ],
-    testTimeout: 30000,
+    testTimeout: 10000,
     verbose: true,
     bail: false,
-    maxWorkers: '50%',
-    testSequencer: '@jest/test-sequencer'
+    maxWorkers: 1
 };
