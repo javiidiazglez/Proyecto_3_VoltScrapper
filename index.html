@@ -1,13 +1,38 @@
+---
+layout: default
+title: "Generador Análisis Empresarial"
+description: "Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real"
+permalink: /
+---
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis Empresarial</title>
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAABSlBMVEVHcEz58vL////36Ovsz9Pkwrj//Prn1sudBxyaAA2YCxaaDSP/////vZX/wJH/yZn///////6uV1mgCSKiAh6hEyb5oGjxewD0ewDzgADukADEZBSIahyAPSajBR2gCCb2nVjxhwPqjwLpkwS0jyqWpRqHoSu2bFalBiSiCSH1oVfrjgPglQDDogiKx0yzACCmAh+gCiSpABrPbQ7GEy2xFh+rABmoABv0nVjocgDETDnTIC7KCiPEcDvGaWLvlRHIDyaoEhvwpnXTcQzQah+uBSOxABnGNUCPABycAB6eBSPanaLSmqG+YmmeDyqhDCu2XmiZAAj39OXZ5aF7mQiWNwmoq1qezRp7pQBrmACaDySHUwCItACrxWy2Zm65012QtADd6qmbsQCPsQCCqwCjABDXVgD/7Xryyn7jvSjYZwDfWAD///z/8eLuy8jOAAAAbnRSTlMAAQcmTzwTBYTmt04NNGeCGyxg2f+lN5Pm/i1LYkmP/nv/yoN0Sh12/tKv/MqBPsTr6oVrsFhnJ3LYiv/ODyfu/ztforWS/cpnmcO2jTj//6dyRltej8rw9qf/sP6McKX/a7nemWNhmsSJ/8xgenBm+CcAAAFtSURBVHgBbNHTYsRAAAXQ2G2j2na7tm3brv//tZmtJru9cc54EH1Q/RO8QYjhBEFStL4GCHjBGZbleAomYWV1bY3EREmUFVVV13EIsY3Nre3tzZ3dvf2DQw0VCULhaGv7+Pjk9Oz84vLqSlWvYaRuNLu9vbs/f7h8NBivTeI/aOYtFqvVxtsxuFmHc/v49uR01+X22FGvfnaIz+w89p/u7FoCniANQBcxFI64rHw0FseRpWD2RDKVYg5iaWrJ6GDyWjEalWtDBluql00eHubyIC5xEYVL45UGICkeXdgNqqDOMZfLXRfJUrlCUigC4dwAMtVavdEsYX/N/mJLYdqNTqfRFf6wp+QP59bi5P5gMOj0/2aE+Rjj4eEhsCAyBAjVRNBgUtHmaUwVcbE8Go8nJXi6mEhOGcbKz56eX84rFQlbWGCvz4d4Z87XsJcGbeoURWkaoUJvGsIALQgmvX+A7mCGSqDo4n8IP0c8AAAxCUB4zPCN3QAAAABJRU5ErkJggg==">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <meta name="author" content="Proyecto 3 - Grupo 2. TanDEM">
+    <meta name="keywords" content="análisis empresarial, inteligencia de negocio, investigación corporativa, reportes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="twitter:title" content="{{ page.title }}">
+    <meta property="twitter:description" content="{{ page.description }}">
+
+    <link rel="icon" type="image/png"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAABSlBMVEVHcEz58vL////36Ovsz9Pkwrj//Prn1sudBxyaAA2YCxaaDSP/////vZX/wJH/yZn///////6uV1mgCSKiAh6hEyb5oGjxewD0ewDzgADukADEZBSIahyAPSajBR2gCCb2nVjxhwPqjwLpkwS0jyqWpRqHoSu2bFalBiSiCSH1oVfrjgPglQDDogiKx0yzACCmAh+gCiSpABrPbQ7GEy2xFh+rABmoABv0nVjocgDETDnTIC7KCiPEcDvGaWLvlRHIDyaoEhvwpnXTcQzQah+uBSOxABnGNUCPABycAB6eBSPanaLSmqG+YmmeDyqhDCu2XmiZAAj39OXZ5aF7mQiWNwmoq1qezRp7pQBrmACaDySHUwCItACrxWy2Zm65012QtADd6qmbsQCPsQCCqwCjABDXVgD/7Xryyn7jvSjYZwDfWAD///z/8eLuy8jOAAAAbnRSTlMAAQcmTzwTBYTmt04NNGeCGyxg2f+lN5Pm/i1LYkmP/nv/yoN0Sh12/tKv/MqBPsTr6oVrsFhnJ3LYiv/ODyfu/ztforWS/cpnmcO2jTj//6dyRltej8rw9qf/sP6McKX/a7nemWNhmsSJ/8xgenBm+CcAAAFtSURBVHgBbNHTYsRAAAXQ2G2j2na7tm3brv//tZmtJru9cc54EH1Q/RO8QYjhBEFStL4GCHjBGZbleAomYWV1bY3EREmUFVVV13EIsY3Nre3tzZ3dvf2DQw0VCULhaGv7+Pjk9Oz84vLqSlWvYaRuNLu9vbs/f7h8NBivTeI/aOYtFqvVxtsxuFmHc/v49uR01+X22FGvfnaIz+w89p/u7FoCniANQBcxFI64rHw0FseRpWD2RDKVYg5iaWrJ6GDyWjEalWtDBluql00eHubyIC5xEYVL45UGICkeXdgNqqDOMZfLXRfJUrlCUigC4dwAMtVavdEsYX/N/mJLYdqNTqfRFf6wp+QP59bi5P5gMOj0/2aE+Rjj4eEhsCAyBAjVRNBgUtHmaUwVcbE8Go8nJXi6mEhOGcbKz56eX84rFQlbWGCvz4d4Z87XsJcGbeoURWkaoUJvGsIALQgmvX+A7mCGSqDo4n8IP0c8AAAxCUB4zPCN3QAAAABJRU5ErkJggg==">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* --- RESET Y NUEVA CONFIGURACIÓN GLOBAL --- */
         :root {
@@ -51,7 +76,8 @@
         /* --- CONTENEDOR PRINCIPAL --- */
         .main-container {
             width: 100%;
-            max-width: 550px; /* Ancho ajustado al nuevo diseño */
+            max-width: 550px;
+            /* Ancho ajustado al nuevo diseño */
             z-index: 1;
             display: flex;
             flex-direction: column;
@@ -68,7 +94,7 @@
             transition: all 0.3s ease;
             text-align: left;
         }
-        
+
         /* --- HEADER Y TEXTOS --- */
         .content-card h1 {
             font-size: clamp(1.8rem, 5vw, 2.2rem);
@@ -99,7 +125,8 @@
         #report-form label {
             font-size: 0.9rem;
             color: var(--text-color-darker);
-            margin-bottom: -0.75rem; /* Acercar al input */
+            margin-bottom: -0.75rem;
+            /* Acercar al input */
             font-weight: 500;
         }
 
@@ -167,7 +194,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* --- ÁREA DEL REPORTE (IFRAME) --- */
@@ -180,10 +209,11 @@
 
         #report-container.visible {
             opacity: 1;
-            max-height: 1000px; /* Suficientemente grande */
+            max-height: 1000px;
+            /* Suficientemente grande */
             margin-top: 2rem;
         }
-        
+
         #iframe-wrapper {
             border-radius: 15px;
             overflow: hidden;
@@ -199,7 +229,7 @@
             border-radius: 10px;
             background-color: #fff;
         }
-        
+
         /* --- MENSAJE DE ERROR --- */
         #error-message {
             color: #ff8a8a;
@@ -229,30 +259,36 @@
         @media (max-width: 600px) {
             body {
                 padding: 1rem;
-                align-items: flex-start; /* Evitar centrado vertical en móviles */
+                align-items: flex-start;
+                /* Evitar centrado vertical en móviles */
             }
+
             .content-card {
                 padding: 1.5rem;
             }
+
             #report-iframe {
                 height: 55vh;
             }
         }
     </style>
 </head>
+
 <body>
 
     <canvas id="background-canvas"></canvas>
 
     <div class="main-container">
-        
+
         <main class="content-card">
             <h1>Generador Análisis Empresarial</h1>
-            <p class="subtitle">Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real.</p>
+            <p class="subtitle">Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real.
+            </p>
 
             <form id="report-form">
                 <label for="company-name">Organización a Analizar:</label>
-                <input type="text" id="company-name" placeholder="Ej: Microsoft Corporation " required autocomplete="off">
+                <input type="text" id="company-name" placeholder="Ej: Microsoft Corporation " required
+                    autocomplete="off">
                 <button type="submit" id="generate-button">
                     <span id="button-text">Generar Análisis</span>
                 </button>
@@ -261,9 +297,9 @@
         </main>
 
         <section id="report-container">
-             <div id="iframe-wrapper">
+            <div id="iframe-wrapper">
                 <!-- El Iframe se insertará aquí dinámicamente -->
-             </div>
+            </div>
         </section>
 
         <footer>
@@ -296,7 +332,7 @@
 
                 setLoadingState(true);
                 hideError();
-                
+
                 reportContainer.classList.remove('visible');
                 iframeWrapper.innerHTML = '';
 
@@ -306,9 +342,9 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ custom_webhook: companyName })
                     });
-                    
+
                     if (!response.ok) throw new Error(`Error en la red: ${response.statusText}`);
-                    
+
                     const responseText = await response.text();
                     let data;
                     try {
@@ -335,7 +371,7 @@
                 generateButton.disabled = isLoading;
                 buttonText.innerHTML = isLoading ? '<div class="spinner"></div>Procesando...' : 'Generar Reporte';
             }
-            
+
             function displayReport(url) {
                 iframeWrapper.innerHTML = '';
                 const iframe = document.createElement('iframe');
@@ -378,7 +414,7 @@
                 for (let x = 0; x < columns; x++) {
                     rainDrops[x] = Math.random() * (canvas.height / fontSize); // Inicializar con posiciones aleatorias
                 }
-                
+
                 const rootStyles = getComputedStyle(document.documentElement);
                 const matrixColor = rootStyles.getPropertyValue('--matrix-font-color').trim();
 
@@ -411,4 +447,5 @@
         });
     </script>
 </body>
+
 </html>
