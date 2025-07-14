@@ -11,7 +11,7 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 ## 🌐 Sitio Web
 
-**🔗 URL del sitio**: [https://javiidiaz.github.io/Proyecto_3_Scrapper/](https://javiidiaz.github.io/Proyecto_3_Scrapper/)
+**🔗 URL del sitio**: [https://javiidiazglez.github.io/Proyecto_3_Scrapper/](https://javiidiazglez.github.io/Proyecto_3_Scrapper/)
 
 ## 📊 Estado de Testing
 
