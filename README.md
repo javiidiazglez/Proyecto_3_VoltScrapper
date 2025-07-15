@@ -23,7 +23,7 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 - Noemi Martin Garcia
 - Elvis Ebudo Nwaigwe
 
-## � Características Principales
+## 🚀 Características Principales
 
 - **🎨 Interfaz moderna**: Diseño limpio y profesional con efectos visuales Matrix
 - **⚡ Análisis en tiempo real**: Generación de reportes empresariales instantáneos
@@ -103,7 +103,7 @@ Para desplegar el proyecto:
 
 > 💡 **Tip**: Cada archivo .md contiene información detallada sobre su área específica del proyecto.
 
-##  Estadísticas del Proyecto
+## 📊 Estadísticas del Proyecto
 
 | 📊 **Métrica** | 📈 **Valor** | 🎯 **Estado** |
 |----------------|--------------|---------------|
