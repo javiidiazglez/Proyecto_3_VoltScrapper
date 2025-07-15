@@ -108,6 +108,16 @@ Al ejecutar `node ../test-unico.js`:
 - ✅ **CSS**: 7.79 KB
 - ✅ **JavaScript**: 7.48 KB
 
+## 📊 Visualización de Cobertura
+
+<div align="center">
+
+![Coverage Visual](../coverage-visual.svg)
+
+> 📈 **Gráfico visual de cobertura de código generado automáticamente**
+
+</div>
+
 ---
 
 **Nota**: Esta arquitectura de testing está optimizada para simplicidad y eficiencia. El test único garantiza 100% de éxito y es fácil de mantener.
