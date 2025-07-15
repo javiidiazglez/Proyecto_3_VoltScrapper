@@ -13,15 +13,17 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 **🔗 URL del sitio**: [https://javiidiazglez.github.io/Proyecto_3_Scrapper/](https://javiidiazglez.github.io/Proyecto_3_Scrapper/)
 
-## 📊 Estado de Testing
+## 👥 Equipo
 
-- **Pruebas pasadas**: 31/31 (100% éxito)
-- **Cobertura total**: 91.1%
-- **HTML**: 100% | **CSS**: 100% | **JavaScript**: 77.8%
+**TanDEM - Grupo 2**
 
-📚 **[Ver documentación completa de testing](./tests/README.md)**
+- José Javier Díaz González
+- Laura del Carmen Ilarraza Prendes  
+- Andrea San Román Río
+- Noemi Martin Garcia
+- Elvis Ebudo Nwaigwe
 
-## 🚀 Características Principales
+## � Características Principales
 
 - **🎨 Interfaz moderna**: Diseño limpio y profesional con efectos visuales Matrix
 - **⚡ Análisis en tiempo real**: Generación de reportes empresariales instantáneos
@@ -29,6 +31,14 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 - **✨ Efectos visuales**: Animación Matrix de fondo con Canvas API
 - **🔗 Integración API**: Conectado con webhook para procesamiento de datos
 - **♿ Accesibilidad**: Cumple estándares WCAG
+
+## 📊 Estado de Testing
+
+- **Pruebas pasadas**: 31/31 (100% éxito)
+- **Cobertura total**: 91.1%
+- **HTML**: 100% | **CSS**: 100% | **JavaScript**: 77.8%
+
+📚 **[Ver documentación completa de testing](./tests/README.md)**
 
 ## 🛠️ Stack Tecnológico
 
@@ -75,17 +85,25 @@ Para desplegar el proyecto:
 └── 🔄 .github/workflows/      # CI/CD automatizado
 ```
 
-## 👥 Equipo
+## 📚 Documentación Adicional
 
-**TanDEM - Grupo 2**
+### 📋 Archivos de Configuración y Ayuda
 
-- José Javier Díaz González
-- Laura del Carmen Ilarraza Prendes  
-- Andrea San Román Río
-- Noemi Martin Garcia
-- Elvis Ebudo Nwaigwe
+| 📄 **Archivo** | 📝 **Descripción** | 🔗 **Enlace** |
+|----------------|-------------------|---------------|
+| **SETUP.md** | Guía de instalación y configuración paso a paso | [📖 Ver Setup](./SETUP.md) |
+| **config.md** | Página de configuración del sistema Jekyll | [⚙️ Ver Config](./config.md) |
+| **tests/README.md** | Documentación completa del sistema de testing | [🧪 Ver Testing](./tests/README.md) |
 
-## 📊 Estadísticas del Proyecto
+### 🎯 Enlaces Rápidos
+
+- **🚀 [Instrucciones de Setup](./SETUP.md)** - Cómo instalar y configurar el proyecto
+- **⚙️ [Configuración del Sistema](./config.md)** - Variables y configuración de Jekyll
+- **🧪 [Documentación de Testing](./tests/README.md)** - Guía completa de las 31 pruebas automatizadas
+
+> 💡 **Tip**: Cada archivo .md contiene información detallada sobre su área específica del proyecto.
+
+##  Estadísticas del Proyecto
 
 | 📊 **Métrica** | 📈 **Valor** | 🎯 **Estado** |
 |----------------|--------------|---------------|
