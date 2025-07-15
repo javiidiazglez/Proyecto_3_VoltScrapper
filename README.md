@@ -1,4 +1,4 @@
-# 📊 Grupo2 - Tandem - Generador Análisis Empresarial
+# 📊 Generador Análisis Empresarial
 ## **Proyecto 3 - TanDEM Grupo 2** 🎯
 
 <div align="center">
