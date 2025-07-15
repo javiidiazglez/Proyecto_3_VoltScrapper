@@ -11,20 +11,15 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 ## 🌐 Sitio Web
 
-<div align="center">
 
 | 🚀 **Acceso** | 🌐 **Enlace** |
 |---------------|---------------|
 | **Sitio en Vivo** | **[Ver Proyecto](https://javiidiazglez.github.io/Proyecto_3_Scrapper/)** |
 
-</div>
 
 ## 👥 Equipo
 
-<div align="center">
-
 **🎯 TanDEM - Grupo 2**
-
 ```
 - José Javier Díaz González
 - Laura del Carmen Ilarraza Prendes  
@@ -32,8 +27,6 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 - Noemi Martin Garcia
 - Elvis Ebudo Nwaigwe
 ```
-
-</div>
 
 ## 🚀 Características Principales
 
@@ -46,15 +39,15 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 ## 📊 Estado de Testing
 
-<div align="center">
-
-**🎯 31/31 Pruebas Pasadas** • **📊 91.1% Cobertura** • **✅ 100% Éxito**
-
-`HTML: 100%` • `CSS: 100%` • `JavaScript: 77.8%`
+| 🎯 **Métrica** | 📈 **Resultado** | 🏆 **Estado** |
+|----------------|------------------|---------------|
+| **🧪 Pruebas** | 31/31 | ✅ 100% Éxito |
+| **📊 Cobertura Total** | 91.1% | 🏆 Excelente |
+| **🌐 HTML Coverage** | 100% | ✨ Perfecto |
+| **🎨 CSS Coverage** | 100% | ✨ Perfecto |
+| **⚡ JavaScript Coverage** | 77.8% | 📊 Bueno |
 
 📚 **[Ver Documentación Completa de Testing](./tests/README.md)**
-
-</div>
 
 ## 🛠️ Stack Tecnológico
 
@@ -102,9 +95,6 @@ Para desplegar el proyecto:
 ```
 
 ## 📚 Documentación Adicional
-
-<div align="center">
-
 ### 📖 **Guías y Configuración**
 
 - **🚀 [Instrucciones de Setup](./SETUP.md)** - Cómo instalar y configurar el proyecto
@@ -114,8 +104,6 @@ Para desplegar el proyecto:
 ---
 
 > 💡 **Tip**: Cada archivo contiene información detallada sobre su área específica del proyecto.
-
-</div>
 
 ## 📊 Estadísticas del Proyecto
 
@@ -135,6 +123,8 @@ Para desplegar el proyecto:
 
 ---
 
+<div align="center">
+
 **⭐ Si te gusta este proyecto, ¡dale una estrella! ⭐**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Proyecto_3_Scrapper-181717?logo=github)](https://github.com/javiidiazglez/Proyecto_3_Scrapper)
@@ -145,3 +135,4 @@ Para desplegar el proyecto:
 ---
 
 **📌 Nota**: Este proyecto utiliza un webhook externo para el procesamiento de datos empresariales.
+</div>
