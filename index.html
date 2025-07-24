@@ -502,11 +502,16 @@ permalink: /
         footer {
             text-align: center;
             padding: 2rem 1rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.85rem;
             line-height: 1.4;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 169, 157, 0.3);
             margin-top: 2rem;
+            background: rgba(16, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-content {
@@ -515,24 +520,35 @@ permalink: /
         }
 
         .team-names {
-            margin: 1rem 0;
-            padding: 1rem;
-            background: rgba(0, 169, 157, 0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(0, 169, 157, 0.2);
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 169, 157, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(0, 169, 157, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 169, 157, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .team-names p {
-            margin: 0.5rem 0;
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
         }
 
         footer strong {
-            color: var(--accent-color);
+            color: #00d4c5;
             font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 212, 197, 0.3);
         }
 
         footer p {
             margin: 0.5rem 0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        footer .footer-content > p:first-child,
+        footer .footer-content > p:last-child {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
         }
 
         /* --- RESPONSIVE DESIGN --- */
@@ -550,6 +566,22 @@ permalink: /
             #report-iframe {
                 height: 55vh;
             }
+
+            /* Footer responsive */
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .team-names {
+                margin: 1rem 0;
+                padding: 1rem;
+            }
+
+            .team-names p {
+                margin: 0.5rem 0;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -562,8 +594,8 @@ permalink: /
 
         <main class="content-card" role="main">
             <section class="header-section">
-                <h1>VoltScrapper | Informes Empresariales</h1>
-                <p class="subtitle">Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real.
+                <h1>VoltScrapper | Informes</h1>
+                <p class="subtitle">By Tandem AutoGen - Grupo 2 | AI-Powered ⚡
                 </p>
             </section>
 
@@ -606,7 +638,7 @@ permalink: /
 
         <footer>
             <div class="footer-content">
-                <p>&copy; © 2025. VoltScrapper | Desarrollado por:</p>
+                <p>&copy; 2025 VoltScrapper | Desarrollado por:</p>
                 <div class="team-names">
                     <p><strong>José Javier Díaz González</strong></p>
                     <p><strong>Laura del Carmen Ilarraza Prendes</strong></p>
