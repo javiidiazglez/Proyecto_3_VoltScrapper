@@ -11,7 +11,7 @@
     "test:css": "node tests/css-validator.js",
     "test:accessibility": "node tests/accessibility-test.js",
     "test:performance": "node tests/performance-test.js",
-    "test:all": "npm run test:html && npm run test:css && npm run test && npm run test:accessibility && npm run test:performance",
+    "test:all": "npm run test:html && npm run test:css && npm run test && npm run test:accessibility && npm run test:prestore-config",
     "serve": "http-server . -p 3000",
     "start": "npm run serve"
   },

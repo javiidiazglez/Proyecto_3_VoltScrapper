@@ -2,11 +2,10 @@
 // ================================================
 
 // IMPORTANTE: Este archivo debe ser actualizado manualmente
-// Las variables sensibles están protegidas en .env (server-side)
 
 const CONFIG = {
     // Webhook URL (configuración ofuscada para cliente)
-    WEBHOOK_URL: ['https://hook.eu2.make.com/', '1qcydci1g8342nh74ibrfvkzzvvoeg81'].join(''),
+    WEBHOOK_URL: ['https://hook.eu2.make.com/', 'qjdyqwdoir5xcgk3l5844nkohpa0fhun'].join(''),
     
     PROJECT_NAME: "Generador Análisis Empresarial",
     PROJECT_VERSION: "1.0.0",
