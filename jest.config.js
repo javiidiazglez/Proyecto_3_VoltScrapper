@@ -2,7 +2,7 @@
  * Configuración de Jest
  */
 module.exports = {
-    displayName: 'Proyecto 3 - Scrapper Tests',
+    displayName: 'Proyecto 3 - VoltScrapper Tests',
     testEnvironment: 'node',
     testMatch: [
         '<rootDir>/tests/**/*.test.js'

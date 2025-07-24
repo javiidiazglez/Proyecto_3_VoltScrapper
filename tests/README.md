@@ -1,4 +1,4 @@
-# 🧪 Testing Suite - Proyecto 3 Scrapper
+# 🧪 Testing Suite - Proyecto 3 VoltScrapper
 
 Suite de testing unificada para el Generador de Análisis Empresarial.
 

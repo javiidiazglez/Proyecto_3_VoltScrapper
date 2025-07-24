@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * Test único completo - Proyecto 3 Scrapper
+ * Test único completo - Proyecto 3 VoltScrapper
  * Todas las pruebas en un solo archivo
  */
 
 const fs = require('fs');
 const path = require('path');
 
-console.log('🧪 Ejecutando Suite de Pruebas Completa - Proyecto 3 Scrapper');
+console.log('🧪 Ejecutando Suite de Pruebas Completa - Proyecto 3 VoltScrapper');
 console.log('='.repeat(60));
 
 // Leer archivo HTML
@@ -203,7 +203,7 @@ if (testsPassed === testsTotal) {
 }
 
 console.log('='.repeat(60));
-console.log('🚀 Proyecto 3 - Scrapper | Test Suite Complete');
+console.log('🚀 Proyecto 3 - VoltScrapper | Test Suite Complete');
 console.log('='.repeat(60));
 
 // Salir con código apropiado
