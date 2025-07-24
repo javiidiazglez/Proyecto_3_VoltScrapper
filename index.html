@@ -34,6 +34,7 @@ permalink: /
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
+        /* VERSIÓN ACTUALIZADA - SIN BOTÓN IMPRIMIR - IFRAME ANCHO - 2025-01-24 */
         /* --- RESET Y NUEVA CONFIGURACIÓN GLOBAL --- */
         :root {
             --background-color: #050810;
@@ -260,6 +261,19 @@ permalink: /
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Intentar ocultar elementos específicos de Google Docs */
+        #report-iframe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px; /* Ancho aproximado del panel lateral */
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            z-index: 10;
+        }
+
         /* --- NUEVA SECCIÓN DE ACCIONES DE GOOGLE DOCS --- */
         .docs-actions {
             margin-bottom: 1rem;
@@ -366,7 +380,7 @@ permalink: /
             padding: 8px;
             background: var(--card-background);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            max-width: 90vw; /* Usar 90% del ancho de la pantalla */
+            max-width: 95vw; /* Usar 95% del ancho de la pantalla */
             width: 100%;
             margin: 0 auto; /* Centrar el iframe */
         }
@@ -377,9 +391,10 @@ permalink: /
             max-height: 0;
             overflow: hidden;
             transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
-            width: 100vw; /* Ancho completo de la pantalla */
-            margin-left: calc(-50vw + 50%); /* Centrar y expandir */
-            padding: 0 2rem; /* Padding para que no toque los bordes */
+            width: 100vw !important; /* Ancho completo de la pantalla */
+            margin-left: calc(-50vw + 50%) !important; /* Centrar y expandir */
+            padding: 0 1rem !important; /* Padding para que no toque los bordes */
+            box-sizing: border-box !important;
         }
 
         @media (max-width: 768px) {
@@ -400,13 +415,13 @@ permalink: /
 
             /* Estilos responsivos para iframe */
             #report-container {
-                width: 100vw;
-                margin-left: calc(-50vw + 50%);
-                padding: 0 1rem; /* Menos padding en móviles */
+                width: 100vw !important;
+                margin-left: calc(-50vw + 50%) !important;
+                padding: 0 0.5rem !important; /* Menos padding en móviles */
             }
 
             #iframe-wrapper {
-                max-width: 95vw; /* Más ancho en móviles */
+                max-width: 98vw !important; /* Más ancho en móviles */
                 padding: 4px;
             }
 
@@ -474,7 +489,7 @@ permalink: /
 
         <main class="content-card" role="main">
             <section class="header-section">
-                <h1>Generador Análisis Empresarial</h1>
+                <h1>Generadora Análisis Empresarial</h1>
                 <p class="subtitle">Genere reportes de inteligencia de negocio e investigación corporativa en tiempo real.
                 </p>
             </section>
@@ -680,18 +695,71 @@ permalink: /
                 // Configurar el enlace a Google Docs
                 docsLink.href = webViewLink;
                 
-                // Crear el iframe con el WebViewLink
+                // Modificar la URL para ocultar elementos de la interfaz
+                let cleanedUrl = webViewLink;
+                
+                // Intentar múltiples estrategias para limpiar la interfaz
+                if (cleanedUrl.includes('/edit')) {
+                    // Cambiar a modo preview que es más limpio
+                    cleanedUrl = cleanedUrl.replace('/edit', '/preview');
+                } else if (cleanedUrl.includes('/view')) {
+                    // Si ya está en view, mantenerlo
+                    cleanedUrl = cleanedUrl;
+                }
+                
+                // Agregar parámetros para minimizar la interfaz
+                const params = [
+                    'rm=minimal',           // Modo mínimo
+                    'embedded=true',        // Modo embebido
+                    'chrome=false',         // Sin chrome de navegador
+                    'widget=true',          // Modo widget
+                    'headers=false',        // Sin headers
+                    'navpanes=0',          // Sin paneles de navegación
+                    'tabs=0'               // Sin pestañas
+                ];
+                
+                // Agregar parámetros a la URL
+                const separator = cleanedUrl.includes('?') ? '&' : '?';
+                cleanedUrl += separator + params.join('&');
+                
+                // Crear el iframe con el WebViewLink modificado
                 const iframe = document.createElement('iframe');
                 iframe.id = 'report-iframe';
-                iframe.src = webViewLink;
+                iframe.src = cleanedUrl;
                 iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('scrolling', 'no');
                 iframe.setAttribute('title', 'Reporte de Análisis Empresarial en Google Docs');
+                
+                // Agregar eventos para intentar controlar el contenido después de cargar
+                iframe.onload = () => {
+                    try {
+                        // Intentar inyectar CSS para ocultar elementos (puede fallar por CORS)
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const style = iframeDoc.createElement('style');
+                        style.textContent = `
+                            [role="tablist"], 
+                            .docs-tabstabs,
+                            .outline-toc-container,
+                            .navigation-container,
+                            [data-docs-flag="side_panel"] {
+                                display: none !important;
+                            }
+                            .kix-appview-editor {
+                                margin-left: 0 !important;
+                            }
+                        `;
+                        iframeDoc.head.appendChild(style);
+                    } catch (e) {
+                        console.log('No se puede modificar el iframe debido a restricciones CORS');
+                    }
+                };
+                
                 iframeWrapper.appendChild(iframe);
                 
                 // Mostrar el contenedor
                 reportContainer.classList.add('visible');
                 
-                logActivity('google_docs_report_displayed', { webViewLink });
+                logActivity('google_docs_report_displayed', { webViewLink: cleanedUrl });
             }
 
             function displayReport(url) {
@@ -708,12 +776,6 @@ permalink: /
                 reportContainer.classList.add('visible');
                 
                 logActivity('legacy_report_displayed', { url });
-            }
-
-            function showError(message) {
-                errorMessage.textContent = message;
-                errorMessage.classList.remove('hidden');
-                errorMessage.setAttribute('aria-live', 'assertive');
             }
 
             function hideError() {
