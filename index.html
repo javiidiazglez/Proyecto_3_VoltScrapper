@@ -380,21 +380,20 @@ permalink: /
             padding: 8px;
             background: var(--card-background);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            max-width: 95vw; /* Usar 95% del ancho de la pantalla */
             width: 100%;
-            margin: 0 auto; /* Centrar el iframe */
+            margin: 0 auto;
         }
 
-        /* Contenedor de resultados más ancho que el formulario */
+        /* Contenedor de resultados con el mismo ancho que el formulario */
         #report-container {
             opacity: 0;
             max-height: 0;
             overflow: hidden;
             transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
-            width: 100vw !important; /* Ancho completo de la pantalla */
-            margin-left: calc(-50vw + 50%) !important; /* Centrar y expandir */
-            padding: 0 1rem !important; /* Padding para que no toque los bordes */
-            box-sizing: border-box !important;
+            width: 100%;
+            margin: 2rem auto 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         @media (max-width: 768px) {
@@ -415,13 +414,13 @@ permalink: /
 
             /* Estilos responsivos para iframe */
             #report-container {
-                width: 100vw !important;
-                margin-left: calc(-50vw + 50%) !important;
-                padding: 0 0.5rem !important; /* Menos padding en móviles */
+                width: 100%;
+                margin: 1rem auto 0;
+                padding: 0;
             }
 
             #iframe-wrapper {
-                max-width: 98vw !important; /* Más ancho en móviles */
+                width: 100%;
                 padding: 4px;
             }
 
@@ -695,27 +694,28 @@ permalink: /
                 // Configurar el enlace a Google Docs
                 docsLink.href = webViewLink;
                 
-                // Modificar la URL para ocultar elementos de la interfaz
+                // Modificar la URL para mostrar SOLO el documento
                 let cleanedUrl = webViewLink;
                 
-                // Intentar múltiples estrategias para limpiar la interfaz
+                // Estrategia 1: Cambiar a modo embed/preview más limpio
                 if (cleanedUrl.includes('/edit')) {
-                    // Cambiar a modo preview que es más limpio
                     cleanedUrl = cleanedUrl.replace('/edit', '/preview');
                 } else if (cleanedUrl.includes('/view')) {
-                    // Si ya está en view, mantenerlo
-                    cleanedUrl = cleanedUrl;
+                    cleanedUrl = cleanedUrl.replace('/view', '/preview');
                 }
                 
-                // Agregar parámetros para minimizar la interfaz
+                // Estrategia 2: Agregar parámetros específicos para ocultar TODO excepto el documento
                 const params = [
-                    'rm=minimal',           // Modo mínimo
                     'embedded=true',        // Modo embebido
-                    'chrome=false',         // Sin chrome de navegador
-                    'widget=true',          // Modo widget
+                    'rm=minimal',           // Interfaz mínima
+                    'chrome=false',         // Sin barra de navegación
                     'headers=false',        // Sin headers
+                    'footers=false',        // Sin footers  
+                    'tabs=false',           // Sin pestañas
                     'navpanes=0',          // Sin paneles de navegación
-                    'tabs=0'               // Sin pestañas
+                    'widget=true',          // Modo widget limpio
+                    'single=true',          // Vista única
+                    'gid=0'                // ID de hoja por defecto
                 ];
                 
                 // Agregar parámetros a la URL
@@ -730,27 +730,52 @@ permalink: /
                 iframe.setAttribute('scrolling', 'no');
                 iframe.setAttribute('title', 'Reporte de Análisis Empresarial en Google Docs');
                 
-                // Agregar eventos para intentar controlar el contenido después de cargar
+                // Agregar eventos para forzar vista limpia del documento
                 iframe.onload = () => {
                     try {
-                        // Intentar inyectar CSS para ocultar elementos (puede fallar por CORS)
+                        // Intentar inyectar CSS más agresivo para mostrar SOLO el documento
                         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                         const style = iframeDoc.createElement('style');
                         style.textContent = `
+                            /* Ocultar TODO excepto el contenido del documento */
                             [role="tablist"], 
+                            .docs-tabs,
                             .docs-tabstabs,
                             .outline-toc-container,
                             .navigation-container,
-                            [data-docs-flag="side_panel"] {
+                            [data-docs-flag="side_panel"],
+                            .docs-sidebar,
+                            .docs-chrome,
+                            .docs-omnibox-container,
+                            .docs-titlebar-badges,
+                            .docs-butterbar-container,
+                            #docs-editor-container .kix-toolbar-container,
+                            .kix-ruler,
+                            .docs-material .docs-offscreen-z-index-sentinel + div {
                                 display: none !important;
+                                visibility: hidden !important;
                             }
-                            .kix-appview-editor {
-                                margin-left: 0 !important;
+                            
+                            /* Maximizar el área del documento */
+                            .kix-appview-editor,
+                            .kix-page-container {
+                                margin: 0 !important;
+                                padding: 0 !important;
+                                width: 100% !important;
+                            }
+                            
+                            /* Ocultar elementos específicos de Google Docs */
+                            body > div:first-child > div:first-child > div:first-child {
+                                display: block !important;
+                            }
+                            body > div:first-child > div:first-child > div:not(:first-child) {
+                                display: none !important;
                             }
                         `;
                         iframeDoc.head.appendChild(style);
+                        console.log('CSS aplicado para mostrar solo el documento');
                     } catch (e) {
-                        console.log('No se puede modificar el iframe debido a restricciones CORS');
+                        console.log('No se puede modificar el iframe (CORS) - usando URL limpia');
                     }
                 };
                 
