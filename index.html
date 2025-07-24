@@ -380,19 +380,22 @@ permalink: /
             padding: 8px;
             background: var(--card-background);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            width: 120%; /* Hacer el iframe más ancho que el formulario */
-            max-width: 800px; /* Ancho máximo específico */
+            width: 140%; /* SOLO el iframe más ancho */
+            max-width: 850px; 
             margin: 0 auto;
-            transform: translateX(-10%); /* Centrar el iframe expandido */
+            transform: translateX(-20%); /* Centrar el iframe expandido */
+            position: relative;
+            left: 0;
         }
 
-        /* Contenedor de resultados con ancho mayor que el formulario */
+        /* Contenedor de resultados con ancho NORMAL como el formulario */
         #report-container {
             opacity: 0;
             max-height: 0;
             overflow: visible; /* Permitir que el iframe se extienda */
             transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
             width: 100%;
+            max-width: 550px; /* MISMO ancho que el formulario */
             margin: 2rem auto 0;
             padding: 0;
             box-sizing: border-box;
