@@ -253,8 +253,8 @@ permalink: /
 
         #report-iframe {
             width: 100%;
-            height: 800px; /* Altura reducida para mejor ajuste */
-            min-height: 700px;
+            height: 750px; /* Altura un poco menor */
+            min-height: 650px;
             border: none;
             border-radius: 10px;
             background-color: #fff;
@@ -380,18 +380,19 @@ permalink: /
             padding: 8px;
             background: var(--card-background);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            width: 100%;
+            width: 120%; /* Hacer el iframe más ancho que el formulario */
+            max-width: 800px; /* Ancho máximo específico */
             margin: 0 auto;
+            transform: translateX(-10%); /* Centrar el iframe expandido */
         }
 
         /* Contenedor de resultados con ancho mayor que el formulario */
         #report-container {
             opacity: 0;
             max-height: 0;
-            overflow: hidden;
+            overflow: visible; /* Permitir que el iframe se extienda */
             transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
             width: 100%;
-            max-width: 750px; /* Ancho mayor para el iframe */
             margin: 2rem auto 0;
             padding: 0;
             box-sizing: border-box;
@@ -423,10 +424,11 @@ permalink: /
             #iframe-wrapper {
                 width: 100%;
                 padding: 4px;
+                transform: none; /* Sin transformación en móviles */
             }
 
             #report-iframe {
-                height: 700px; /* Altura ajustada para móviles */
+                height: 650px; /* Altura ajustada para móviles */
                 min-height: 600px;
             }
 
