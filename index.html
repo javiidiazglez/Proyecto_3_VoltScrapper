@@ -82,7 +82,8 @@ permalink: /
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
+            margin: 0;
         }
 
         /* --- FONDO ANIMADO DE RED --- */
@@ -104,6 +105,7 @@ permalink: /
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            margin-top: -5vh;  /* Ajuste para centrar mejor verticalmente */
         }
 
         /* --- CARD DE CONTENIDO --- */
@@ -544,9 +546,13 @@ permalink: /
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 600px) {
             body {
-                padding: 1rem;
-                align-items: flex-start;
-                /* Evitar centrado vertical en móviles */
+                padding: 2rem 1rem;
+                align-items: center;
+                /* Mantener centrado en móviles */
+            }
+
+            .main-container {
+                margin-top: -2vh;  /* Menos margen negativo en móviles */
             }
 
             .content-card {
