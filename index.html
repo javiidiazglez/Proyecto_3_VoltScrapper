@@ -255,8 +255,8 @@ permalink: /
 
         #report-iframe {
             width: 100%;
-            height: 750px; /* Altura un poco menor */
-            min-height: 650px;
+            height: 850px; /* Altura mayor */
+            min-height: 750px;
             border: none;
             border-radius: 10px;
             background-color: #fff;
@@ -335,17 +335,19 @@ permalink: /
 
         /* --- ANIMACIÓN DE PROCESANDO --- */
         .processing-message {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
+            gap: 0.75rem;
+            padding: 0.75rem 1.25rem;
             background: linear-gradient(135deg, var(--card-background), rgba(0, 169, 157, 0.1));
             border: 2px solid var(--accent-color);
-            border-radius: 15px;
-            margin-top: 1rem;
+            border-radius: 10px;
+            margin-left: 1rem;
             color: var(--text-color);
             font-weight: 500;
-            box-shadow: 0 8px 25px rgba(0, 169, 157, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 169, 157, 0.2);
+            font-size: 0.9rem;
+            vertical-align: middle;
         }
 
         .processing-spinner {
@@ -385,7 +387,7 @@ permalink: /
             width: 140%; /* SOLO el iframe más ancho */
             max-width: 850px; 
             margin: 0 auto;
-            transform: translateX(-14%); /* Centrado mejor balanceado */
+            transform: translateX(-20%); /* Centrado perfecto */
             position: relative;
             left: 0;
         }
@@ -506,21 +508,18 @@ permalink: /
                 <label for="company-name">Organización a Analizar:</label>
                 <input type="text" id="company-name" placeholder="Ej: Microsoft Corporation " required
                     autocomplete="off">
-                <button type="submit" id="generate-button" aria-label="Generar análisis empresarial">
-                    <span id="button-text">Generar Análisis</span>
-                </button>
+                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <button type="submit" id="generate-button" aria-label="Generar análisis empresarial">
+                        <span id="button-text">Generar Análisis</span>
+                    </button>
+                    <!-- Mensaje de procesando al lado del botón -->
+                    <div id="processing-message" class="processing-message hidden" role="status" aria-live="polite">
+                        <div class="processing-spinner"></div>
+                        <span>🔄 Procesando<span class="processing-dots">...</span></span>
+                    </div>
+                </div>
             </form>
             <p id="error-message" class="hidden" role="alert" aria-live="polite"></p>
-            
-            <!-- Mensaje de procesando -->
-            <div id="processing-message" class="processing-message hidden" role="status" aria-live="polite">
-                <div class="processing-spinner"></div>
-                <span>🔄 Procesando su solicitud<span class="processing-dots">...</span></span>
-                <br>
-                <small style="opacity: 0.8; margin-top: 0.5rem; display: block;">
-                    ⏱️ El análisis puede tardar entre 30 segundos y 2 minutos. Por favor, manténgase en la página.
-                </small>
-            </div>
             </section>
         </main>
 
