@@ -94,7 +94,7 @@ permalink: /
         /* --- CONTENEDOR PRINCIPAL --- */
         .main-container {
             width: 100%;
-            max-width: 750px;
+            max-width: 550px;
             /* Ancho ajustado al nuevo diseño */
             z-index: 1;
             display: flex;
@@ -384,13 +384,14 @@ permalink: /
             margin: 0 auto;
         }
 
-        /* Contenedor de resultados con el mismo ancho que el formulario */
+        /* Contenedor de resultados con ancho mayor que el formulario */
         #report-container {
             opacity: 0;
             max-height: 0;
             overflow: hidden;
             transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
             width: 100%;
+            max-width: 750px; /* Ancho mayor para el iframe */
             margin: 2rem auto 0;
             padding: 0;
             box-sizing: border-box;
