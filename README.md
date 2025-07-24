@@ -122,7 +122,7 @@ Para desplegar el proyecto:
 
 - **🚀 [Instrucciones de Setup](./docs/SETUP.md)** - Cómo instalar y configurar el proyecto
 - **⚙️ [Configuración del Sistema](./docs/config.md)** - Variables y configuración de Jekyll
-- **🧪 [Documentación de Testing](./docs/tests/README.md)** - Guía completa de las 31 pruebas automatizadas
+- **🧪 [Documentación de Testing](./tests/README.md)** - Guía completa de las 31 pruebas automatizadas
 
 ---
 

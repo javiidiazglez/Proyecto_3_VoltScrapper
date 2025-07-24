@@ -1,6 +1,9 @@
 @echo off
 echo 🚀 Iniciando despliegue en GitHub Pages...
 
+REM Cambiar al directorio raíz del proyecto
+cd ..
+
 REM Verificar si estamos en un repositorio git
 if not exist ".git" (
     echo ❌ Error: No se encontró un repositorio git

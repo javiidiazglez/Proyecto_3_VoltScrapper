@@ -4,6 +4,7 @@ echo ==================================================
 
 echo.
 echo 🔍 1. Ejecutando pruebas principales...
+cd ..
 node tests/test-unico.js
 
 echo.

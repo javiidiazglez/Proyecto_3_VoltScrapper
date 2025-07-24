@@ -6,19 +6,19 @@ Suite de testing unificada para el Generador de Análisis Empresarial.
 
 ```bash
 # Test principal (recomendado)
-node ../test-unico.js
+node test-unico.js
 
 # Reporte de cobertura
 node coverage-report.js
 
 # Ejecutar ambos
-../run-all-tests.sh     # Linux/Mac
-../run-all-tests.bat    # Windows
+../scripts/run-all-tests.sh     # Linux/Mac
+../scripts/run-all-tests.bat    # Windows
 ```
 
 ## 📋 Arquitectura de Testing
 
-### Test Único (`../test-unico.js`)
+### Test Único (`test-unico.js`)
 - **31 pruebas automatizadas** en un solo archivo
 - **100% éxito** garantizado
 - **Validación completa** HTML, CSS, JavaScript
@@ -89,23 +89,23 @@ node coverage-report.js
 
 ```bash
 # Ejecutar test único
-node ../test-unico.js
+node test-unico.js
 
 # Generar reporte de cobertura
 node coverage-report.js
 
 # Ejecutar todo
-../run-all-tests.sh      # Linux/Mac
-../run-all-tests.bat     # Windows
+../scripts/run-all-tests.sh      # Linux/Mac
+../scripts/run-all-tests.bat     # Windows
 
 # Ver reporte de cobertura
-../view-coverage.sh      # Linux/Mac
-../view-coverage.bat     # Windows
+../scripts/view-coverage.sh      # Linux/Mac
+../scripts/view-coverage.bat     # Windows
 ```
 
 ## 📈 Resultados esperados
 
-Al ejecutar `node ../test-unico.js`:
+Al ejecutar `node test-unico.js`:
 - ✅ **31/31 pruebas pasadas**
 - ✅ **100% éxito**
 - ✅ **Tamaño optimizado**: 19.51 KB
@@ -116,7 +116,7 @@ Al ejecutar `node ../test-unico.js`:
 
 <div align="center">
 
-![Coverage Visual](../coverage-visual.svg)
+![Coverage Visual](../assets/images/coverage-visual.svg)
 
 > 📈 **Gráfico visual de cobertura de código generado automáticamente**
 
