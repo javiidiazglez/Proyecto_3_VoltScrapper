@@ -451,6 +451,8 @@ permalink: /
 
     </div>
 
+    <!-- Cargar configuración antes del script principal -->
+    <script src="config.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- LÓGICA DEL FORMULARIO Y API (sin cambios) ---
@@ -465,7 +467,7 @@ permalink: /
             const docsLink = document.getElementById('docs-link');
             const printButton = document.getElementById('print-button');
 
-            const webhookUrl = 'https://hook.eu2.make.com/1qcydci1g8342nh74ibrfvkzzvvoeg81';
+            const webhookUrl = CONFIG.WEBHOOK_URL;
 
             reportForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -539,9 +541,9 @@ permalink: /
                     console.error('Error al generar el reporte:', error);
                     
                     if (error.message.includes('Failed to fetch')) {
-                        showWarning('� Conectando con el servidor... Los datos se están enviando para procesamiento asíncrono.');
+                        showWarning('⚠️ Ha habido un error de red a la hora de conectarse con la webhook y traer los datos.');
                     } else if (error.message.includes('no scenario listening')) {
-                        showWarning('⚙️ El webhook está configurándose. Los datos han sido registrados para procesamiento.');
+                        showWarning('⚙️ El escenario de make no está escuchando.');
                     } else {
                         showError(`Error: ${error.message}`);
                     }

@@ -2,6 +2,19 @@
 
 Documentación técnica de configuración para el **Generador de Análisis Empresarial**.
 
+## 🔗 Configuración de API
+
+### Webhook Principal
+```
+URL: [Protegida en .env]
+Método: POST
+Content-Type: application/json
+Timeout: 30 segundos
+```
+
+**🔒 Seguridad**: La URL del webhook está protegida en variables de entorno.
+Ver [SECURITY.md](./SECURITY.md) para más detalles.
+
 ## 📋 Información General
 
 | 🔧 **Parámetro** | 📈 **Valor** | 📝 **Descripción** |
@@ -38,7 +51,7 @@ ssl: Habilitado (HTTPS)
 
 ### Webhook Principal
 ```
-URL: https://hook.eu2.make.com/1qcydci1g8342nh74ibrfvkzzvvoeg81
+URL: [Protegida en .env]
 Método: POST
 Content-Type: application/json
 Timeout: 30 segundos
@@ -140,7 +153,7 @@ curl -I https://javiidiazglez.github.io/Proyecto_3_Scrapper/
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"custom_webhook": "Test Company"}' \
-  https://hook.eu2.make.com/qjdyqwdoir5xcgk3l5844nkohpa0fhun
+  [URL_WEBHOOK_PROTEGIDA]
 
 # Validar HTML
 npx html-validate index.html
@@ -161,6 +174,7 @@ bundle list
 - 🧪 **[Documentación de Testing](../tests/README.md)**
 - 📖 **[Setup del Proyecto](../SETUP.md)**
 - 📊 **[Cobertura Visual](../coverage-visual.svg)**
+- 🔒 **[Configuración de Seguridad](../SECURITY.md)**
 
 ---
 
