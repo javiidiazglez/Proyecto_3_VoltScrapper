@@ -60,8 +60,15 @@ Timeout: 30 segundos
 ### Formato de Petición
 ```json
 {
-  "company_name": "Nombre de la empresa"
+  "company_name": "Nombre de la empresa",
+  "email": "usuario@ejemplo.com"
 }
+```
+
+### Validación de Email
+```javascript
+// Regex de validación implementada
+/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 ```
 
 ### Formato de Respuesta Esperada
@@ -132,6 +139,8 @@ gem "jekyll-sitemap"
 - ✅ **HTML**: Estructura semántica, meta tags completos
 - ✅ **Canvas**: Animación Matrix optimizada (60 FPS)
 - ✅ **Responsive**: Media queries y Flexbox/Grid
+- ✅ **Iframe**: Optimizado para Google Docs con parámetros de limpieza
+- ✅ **Formularios**: Validación en tiempo real y feedback visual
 
 ### Métricas de Rendimiento
 | 📊 **Métrica** | 🎯 **Valor** |

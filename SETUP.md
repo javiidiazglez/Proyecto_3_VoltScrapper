@@ -102,5 +102,26 @@ Proyecto_3_VoltScrapper/
 3. ✅ Layout y estructura creados
 4. ✅ Scripts de despliegue listos
 5. ✅ Documentación completada
+6. ✅ Campo de email con validación implementado
+7. ✅ Iframe optimizado para Google Docs
+8. ✅ Validación en tiempo real activa
+
+## 🆕 Características Actuales
+
+### 📧 Validación de Email
+- **Regex de validación**: `/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/`
+- **Feedback visual**: Bordes rojos/verdes según validación
+- **Validación en tiempo real**: Solo después de interacción del usuario
+
+### 📊 Iframe Optimizado
+- **Tamaño**: 140% de ancho, 1100px de altura
+- **Centrado**: Transform translateX(-50%) para perfecto centrado
+- **Google Docs**: Parámetros especiales para vista limpia
+- **Responsive**: Ajustes automáticos en móviles
+
+### 🔄 Procesamiento Mejorado
+- **Spinner animado**: Al lado del botón durante el proceso
+- **Estados múltiples**: Success, Warning, Error con colores distintivos
+- **Datos enviados**: Empresa + Email al webhook
 
 ¡Tu sitio está listo para GitHub Pages! 🎉

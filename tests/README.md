@@ -54,27 +54,31 @@ node coverage-report.js
 ### 1. **Validación HTML** (10 pruebas)
 - ✅ DOCTYPE, lang, meta tags
 - ✅ Elementos semánticos
-- ✅ Estructura del formulario
+- ✅ Estructura del formulario con campo de email
 - ✅ Canvas y elementos multimedia
 
 ### 2. **Validación CSS** (6 pruebas)
 - ✅ Variables CSS y flexbox
 - ✅ Media queries y animaciones
 - ✅ Transiciones y efectos
+- ✅ Estilos del iframe optimizado
 
 ### 3. **Validación JavaScript** (5 pruebas)
 - ✅ Event listeners y DOM queries
-- ✅ Funciones y Canvas context
+- ✅ Funciones de validación de email
+- ✅ Canvas context y Matrix animation
 - ✅ Estructura de código
 
 ### 4. **Validación Funcional** (4 pruebas)
-- ✅ Formularios y inputs
+- ✅ Formularios con validación en tiempo real
+- ✅ Inputs de empresa y email
 - ✅ Botones y acciones
 - ✅ Estructura semántica
 
 ### 5. **Accesibilidad** (3 pruebas)
 - ✅ Labels y headings
 - ✅ Alt text y elementos semánticos
+- ✅ ARIA labels para formularios
 
 ### 6. **Rendimiento** (3 pruebas)
 - ✅ Tamaño optimizado

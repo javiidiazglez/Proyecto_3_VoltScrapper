@@ -32,7 +32,9 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 - **🎨 Interfaz moderna**: Diseño limpio y profesional con efectos visuales Matrix
 - **⚡ Análisis en tiempo real**: Generación de reportes empresariales instantáneos
-- **📱 Responsive**: Adaptable a todos los dispositivos
+- **� Validación de email**: Campo de correo con validación regex en tiempo real
+- **📊 Iframe optimizado**: Visualización mejorada de Google Docs con mayor tamaño
+- **�📱 Responsive**: Adaptable a todos los dispositivos
 - **✨ Efectos visuales**: Animación Matrix de fondo con Canvas API
 - **🔗 Integración API**: Conectado con webhook para procesamiento de datos
 - **♿ Accesibilidad**: Cumple estándares WCAG
@@ -67,9 +69,10 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 1. **🌐 Accede al sitio**: [javiidiazglez.github.io/Proyecto_3_VoltScrapper](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
 2. **📝 Introduce el nombre**: Escribe el nombre de la empresa a analizar
-3. **🚀 Genera el análisis**: Haz clic en "Generar Análisis" 
-4. **⏳ Espera el procesamiento**: El sistema procesará la información en tiempo real
-5. **📊 Revisa el reporte**: Analiza los resultados en el iframe integrado
+3. **� Introduce tu email**: Proporciona un correo electrónico válido (con validación en tiempo real)
+4. **�🚀 Genera el análisis**: Haz clic en "Generar Análisis" 
+5. **⏳ Espera el procesamiento**: El sistema procesará la información en tiempo real
+6. **📊 Revisa el reporte**: Analiza los resultados en el iframe optimizado de Google Docs
 
 ## 🌐 Configuración GitHub Pages
 

@@ -64,6 +64,35 @@ const projectName = CONFIG.PROJECT_NAME;
 - Documentar la configuración necesaria
 - Mantener `.gitignore` actualizado
 - Rotar webhooks si se comprometen
+- Validar datos de entrada (email, empresa)
+- Sanitizar inputs del usuario
+
+## 🛡️ Validación de Datos
+
+### Validación de Email
+```javascript
+// Validación robusta implementada
+function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+```
+
+### Sanitización de Inputs
+```javascript
+// Prevenir XSS en inputs de texto
+function sanitizeInput(input) {
+    return input.replace(/[<>]/g, '');
+}
+```
+
+### Estructura de Datos Enviados
+```json
+{
+  "company_name": "Empresa validada y sanitizada",
+  "email": "email@validado.com"
+}
+```
 
 ## 🔄 Actualización de Webhooks
 
