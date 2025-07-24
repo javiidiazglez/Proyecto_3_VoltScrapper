@@ -181,9 +181,9 @@ bundle list
 
 - 🏠 **[Página Principal](../)**
 - 🧪 **[Documentación de Testing](../tests/README.md)**
-- 📖 **[Setup del Proyecto](../SETUP.md)**
-- 📊 **[Cobertura Visual](../coverage-visual.svg)**
-- 🔒 **[Configuración de Seguridad](../SECURITY.md)**
+- 📖 **[Setup del Proyecto](../docs/SETUP.md)**
+- 📊 **[Cobertura Visual](../assets/images/coverage-visual.svg)**
+- 🔒 **[Configuración de Seguridad](../docs/SECURITY.md)**
 
 ---
 

@@ -1,4 +1,4 @@
-# 📊 Generador Análisis Empresarial
+# 📊 VoltScrapper | Informes Empresariales
 ## **Proyecto 3 - TanDEM Grupo 2** 🎯
 
 <div align="center">
@@ -10,7 +10,6 @@
 Una herramienta web moderna para generar reportes de inteligencia de negocio e investigación corporativa en tiempo real con animaciones visuales avanzadas. Desarrollado por el **Grupo 2 del TanDEM**.
 
 ## 🌐 Sitio Web
-
 
 | 🚀 **Acceso** | 🌐 **Enlace** |
 |---------------|---------------|
@@ -80,19 +79,40 @@ Para desplegar el proyecto:
 1. Ve a Settings > Pages en tu repositorio
 2. Selecciona "Deploy from a branch"
 3. Elige la rama `main`
+4. Guarda los cambios y espera unos minutos para que se despliegue
 
 ## 📄 Arquitectura del Proyecto
 
 ```
 📁 Proyecto_3_VoltScrapper/
-├── 🌐 index.html              # Página principal
-├── 🧪 tests/                  # Suite de testing
+├── 📁 assets/                 # Recursos del proyecto
+│   └── 📁 images/             # Imágenes y gráficos
+│       ├── 🖼️ favicon.jpg      # Favicon personalizado
+│       ├── 🎨 logo.svg         # Logo del proyecto
+│       └── 📊 coverage_visual.svg # Gráfico de cobertura
+├── 📁 config/
+│   ├── config.js             # Configuración del proyecto
+│   └── jest.config.js        # Configuración de Jest
+├── 📁 docs/                   # Documentación técnica
+│   ├── 🔒 SECURITY.md         # Políticas de seguridad
+│   ├── 📖 SETUP.md            # Guía de instalación
+│   └── ⚙️ config.md           # Configuración técnica
+├── 📁 scripts/                # Scripts de automatización
+│   ├── 🧪 run-all-tests.sh    # Testing Linux/Mac
+│   ├── 🧪 run-all-tests.bat   # Testing Windows
+│   ├── 📊 view-coverage.sh    # Cobertura Linux/Mac
+│   ├── 📊 view-coverage.bat   # Cobertura Windows
+│   ├── 🚀 deploy.sh           # Deploy Linux/Mac
+│   └── 🚀 deploy.bat          # Deploy Windows
+├── 📁 tests/                  # Suite de testing
 │   ├── test-unico.js          # 31 pruebas automatizadas
 │   ├── coverage-report.js     # Generador de reportes
 │   └── README.md              # Documentación de testing
-├── 📊 coverage/               # Reportes de cobertura
-├── 🚀 run-all-tests.sh/.bat   # Scripts de testing
-├── ⚙️ _config.yml             # Configuración Jekyll
+├── 🌐 index.html               # Aplicación principal
+├── ⚙️ config.js               # Configuración del proyecto
+├── 📦 package.json            # Dependencias y scripts
+├── 🔒 .gitignore              # Control de versiones
+├── 📚 README.md               # Documentación principal
 ├── 💎 Gemfile                 # Dependencias Ruby
 └── 🔄 .github/workflows/      # CI/CD automatizado
 ```
@@ -100,9 +120,9 @@ Para desplegar el proyecto:
 ## 📚 Documentación Adicional
 ### 📖 **Guías y Configuración**
 
-- **🚀 [Instrucciones de Setup](./SETUP.md)** - Cómo instalar y configurar el proyecto
-- **⚙️ [Configuración del Sistema](./config.md)** - Variables y configuración de Jekyll
-- **🧪 [Documentación de Testing](./tests/README.md)** - Guía completa de las 31 pruebas automatizadas
+- **🚀 [Instrucciones de Setup](./docs/SETUP.md)** - Cómo instalar y configurar el proyecto
+- **⚙️ [Configuración del Sistema](./docs/config.md)** - Variables y configuración de Jekyll
+- **🧪 [Documentación de Testing](./docs/tests/README.md)** - Guía completa de las 31 pruebas automatizadas
 
 ---
 

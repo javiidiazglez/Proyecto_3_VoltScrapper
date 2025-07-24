@@ -7,7 +7,7 @@ const CONFIG = {
     // Webhook URL (configuración ofuscada para cliente)
     WEBHOOK_URL: ['https://hook.eu2.make.com/', 'qjdyqwdoir5xcgk3l5844nkohpa0fhun'].join(''),
     
-    PROJECT_NAME: "Generador Análisis Empresarial",
+    PROJECT_NAME: "VoltScrapper | Informes",
     PROJECT_VERSION: "1.0.0",
     ENVIRONMENT: "production",
     GITHUB_PAGES_URL: "https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/",
