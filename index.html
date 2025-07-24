@@ -484,11 +484,16 @@ permalink: /
                 docsActions.classList.add('hidden');
 
                 try {
+                    console.log('Enviando petición a:', webhookUrl);
+                    console.log('Datos:', JSON.stringify({ custom_webhook: companyName }));
+                    
                     const response = await fetch(webhookUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ custom_webhook: companyName })
                     });
+
+                    console.log('Respuesta recibida. Status:', response.status, 'StatusText:', response.statusText);
 
                     if (response.status === 200) {
                         const responseText = await response.text();
@@ -509,7 +514,10 @@ permalink: /
                             throw new Error('La respuesta del servidor no contiene la URL del documento.');
                         }
                     } else {
-                        throw new Error(`Error en la red: ${response.statusText}`);
+                        // Obtener más información del error
+                        const errorText = await response.text();
+                        console.error('Status:', response.status, 'StatusText:', response.statusText, 'Response:', errorText);
+                        throw new Error(`Error en la red (${response.status}): ${response.statusText}. Respuesta: ${errorText}`);
                     }
 
                 } catch (error) {
