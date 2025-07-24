@@ -38,7 +38,7 @@ ssl: Habilitado (HTTPS)
 
 ### Webhook Principal
 ```
-URL: https://hook.eu2.make.com/qjdyqwdoir5xcgk3l5844nkohpa0fhun
+URL: https://hook.eu2.make.com/1qcydci1g8342nh74ibrfvkzzvvoeg81
 Método: POST
 Content-Type: application/json
 Timeout: 30 segundos
@@ -47,7 +47,7 @@ Timeout: 30 segundos
 ### Formato de Petición
 ```json
 {
-  "custom_webhook": "Nombre de la empresa"
+  "company_name": "Nombre de la empresa"
 }
 ```
 

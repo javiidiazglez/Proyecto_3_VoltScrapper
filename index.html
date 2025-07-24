@@ -485,24 +485,12 @@ permalink: /
 
                 try {
                     console.log('Enviando petición a:', webhookUrl);
-                    console.log('Datos:', JSON.stringify({ custom_webhook: companyName }));
+                    console.log('Datos:', JSON.stringify({ company_name: companyName }));
                     
                     const response = await fetch(webhookUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ custom_webhook: companyName })
-                    });
-
-                    console.log('Respuesta recibida. Status:', response.status, 'StatusText:', response.statusText);
-
-                try {
-                    console.log('Enviando petición a:', webhookUrl);
-                    console.log('Datos:', JSON.stringify({ custom_webhook: companyName }));
-                    
-                    const response = await fetch(webhookUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ custom_webhook: companyName })
+                        body: JSON.stringify({ company_name: companyName })
                     });
 
                     console.log('Respuesta recibida. Status:', response.status, 'StatusText:', response.statusText);
