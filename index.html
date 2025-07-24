@@ -272,6 +272,90 @@ permalink: /
             background-color: #fff;
         }
 
+        /* --- NUEVA SECCIÓN DE ACCIONES DE GOOGLE DOCS --- */
+        .docs-actions {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--card-background);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .docs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .docs-header h3 {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .docs-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--hover-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 169, 157, 0.2);
+        }
+
+        .docs-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 169, 157, 0.3);
+            background: linear-gradient(135deg, var(--hover-color), var(--focus-color));
+        }
+
+        .docs-button:active {
+            transform: translateY(0);
+        }
+
+        .print-btn {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .print-btn:hover {
+            background: linear-gradient(135deg, #5b5af6, #9333ea);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .docs-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .action-buttons {
+                justify-content: center;
+            }
+
+            .docs-button {
+                flex: 1;
+                justify-content: center;
+                min-width: 140px;
+            }
+        }
+
         /* --- MENSAJE DE ERROR --- */
         #error-message {
             color: #ff8a8a;
@@ -343,6 +427,19 @@ permalink: /
         </main>
 
         <section id="report-container" class="results-section" role="region" aria-label="Resultados del análisis">
+            <div id="docs-actions" class="docs-actions hidden">
+                <div class="docs-header">
+                    <h3>📄 Reporte Generado</h3>
+                    <div class="action-buttons">
+                        <a id="docs-link" href="#" target="_blank" rel="noopener noreferrer" class="docs-button">
+                            📑 Abrir en Google Docs
+                        </a>
+                        <button id="print-button" class="docs-button print-btn">
+                            🖨️ Imprimir
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div id="iframe-wrapper">
                 <!-- El Iframe se insertará aquí dinámicamente -->
             </div>
@@ -364,8 +461,11 @@ permalink: /
             const reportContainer = document.getElementById('report-container');
             const iframeWrapper = document.getElementById('iframe-wrapper');
             const errorMessage = document.getElementById('error-message');
+            const docsActions = document.getElementById('docs-actions');
+            const docsLink = document.getElementById('docs-link');
+            const printButton = document.getElementById('print-button');
 
-            const webhookUrl = 'https://hook.eu2.make.com/laa9597i9t2knu812cogii0paeafgxfm';
+            const webhookUrl = 'https://hook.eu2.make.com/qjdyqwdoir5xcgk3l5844nkohpa0fhun';
 
             reportForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -381,6 +481,7 @@ permalink: /
 
                 reportContainer.classList.remove('visible');
                 iframeWrapper.innerHTML = '';
+                docsActions.classList.add('hidden');
 
                 try {
                     const response = await fetch(webhookUrl, {
@@ -389,20 +490,26 @@ permalink: /
                         body: JSON.stringify({ custom_webhook: companyName })
                     });
 
-                    if (!response.ok) throw new Error(`Error en la red: ${response.statusText}`);
+                    if (response.status === 200) {
+                        const responseText = await response.text();
+                        let data;
+                        try {
+                            data = JSON.parse(responseText);
+                        } catch (parseError) {
+                            throw new Error("La respuesta del servidor no fue un JSON válido. Respuesta: " + responseText);
+                        }
 
-                    const responseText = await response.text();
-                    let data;
-                    try {
-                        data = JSON.parse(responseText);
-                    } catch (parseError) {
-                        throw new Error("La respuesta del servidor no fue un JSON válido. Respuesta: " + responseText);
-                    }
-
-                    if (data && data.docu) {
-                        displayReport(data.docu);
+                        // Verificar si la respuesta contiene un WebViewLink de Google Docs
+                        if (data && data.WebViewLink) {
+                            displayGoogleDocsReport(data.WebViewLink);
+                        } else if (data && data.docu) {
+                            // Mantener compatibilidad con el formato anterior
+                            displayReport(data.docu);
+                        } else {
+                            throw new Error('La respuesta del servidor no contiene la URL del documento.');
+                        }
                     } else {
-                        throw new Error('La respuesta del servidor no contiene la URL del documento.');
+                        throw new Error(`Error en la red: ${response.statusText}`);
                     }
 
                 } catch (error) {
@@ -418,14 +525,59 @@ permalink: /
                 buttonText.innerHTML = isLoading ? '<div class="spinner"></div>Procesando...' : 'Generar Reporte';
             }
 
-            function displayReport(url) {
+            function displayGoogleDocsReport(webViewLink) {
+                // Limpiar contenido anterior
                 iframeWrapper.innerHTML = '';
+                docsActions.classList.remove('hidden');
+                
+                // Configurar el enlace a Google Docs
+                docsLink.href = webViewLink;
+                
+                // Crear el iframe con el WebViewLink
+                const iframe = document.createElement('iframe');
+                iframe.id = 'report-iframe';
+                iframe.src = webViewLink;
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('title', 'Reporte de Análisis Empresarial en Google Docs');
+                iframeWrapper.appendChild(iframe);
+                
+                // Mostrar el contenedor
+                reportContainer.classList.add('visible');
+                
+                // Configurar el botón de imprimir
+                printButton.onclick = () => {
+                    try {
+                        // Intentar imprimir el contenido del iframe
+                        const iframeWindow = iframe.contentWindow;
+                        if (iframeWindow) {
+                            iframeWindow.print();
+                        } else {
+                            // Si no se puede acceder al iframe, abrir Google Docs en nueva ventana para imprimir
+                            window.open(webViewLink, '_blank');
+                        }
+                    } catch (error) {
+                        console.log('Error al imprimir desde iframe, abriendo en nueva ventana');
+                        window.open(webViewLink, '_blank');
+                    }
+                };
+                
+                logActivity('google_docs_report_displayed', { webViewLink });
+            }
+
+            function displayReport(url) {
+                // Función original para compatibilidad
+                iframeWrapper.innerHTML = '';
+                docsActions.classList.add('hidden');
+                
                 const iframe = document.createElement('iframe');
                 iframe.id = 'report-iframe';
                 iframe.src = url;
                 iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('title', 'Reporte de Análisis Empresarial');
                 iframeWrapper.appendChild(iframe);
                 reportContainer.classList.add('visible');
+                
+                logActivity('legacy_report_displayed', { url });
             }
 
             function showError(message) {
