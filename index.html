@@ -342,12 +342,25 @@ permalink: /
             background: linear-gradient(135deg, var(--card-background), rgba(0, 169, 157, 0.1));
             border: 2px solid var(--accent-color);
             border-radius: 10px;
-            margin-left: 1rem;
             color: var(--text-color);
             font-weight: 500;
             box-shadow: 0 4px 15px rgba(0, 169, 157, 0.2);
             font-size: 0.9rem;
-            vertical-align: middle;
+            position: absolute;
+            left: calc(100% + 1rem);
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+        }
+
+        /* Contenedor del formulario con posición relativa para el positioning absoluto */
+        .form-section {
+            position: relative;
+        }
+
+        /* El botón necesita posición relativa para el mensaje absoluto */
+        #generate-button {
+            position: relative;
         }
 
         .processing-spinner {
@@ -387,9 +400,9 @@ permalink: /
             width: 140%; /* SOLO el iframe más ancho */
             max-width: 850px; 
             margin: 0 auto;
-            transform: translateX(-20%); /* Centrado perfecto */
             position: relative;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* Contenedor de resultados con ancho NORMAL como el formulario */
@@ -508,15 +521,13 @@ permalink: /
                 <label for="company-name">Organización a Analizar:</label>
                 <input type="text" id="company-name" placeholder="Ej: Microsoft Corporation " required
                     autocomplete="off">
-                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                    <button type="submit" id="generate-button" aria-label="Generar análisis empresarial">
-                        <span id="button-text">Generar Análisis</span>
-                    </button>
-                    <!-- Mensaje de procesando al lado del botón -->
-                    <div id="processing-message" class="processing-message hidden" role="status" aria-live="polite">
-                        <div class="processing-spinner"></div>
-                        <span>🔄 Procesando<span class="processing-dots">...</span></span>
-                    </div>
+                <button type="submit" id="generate-button" aria-label="Generar análisis empresarial">
+                    <span id="button-text">Generar Análisis</span>
+                </button>
+                <!-- Mensaje de procesando al lado del botón -->
+                <div id="processing-message" class="processing-message hidden" role="status" aria-live="polite">
+                    <div class="processing-spinner"></div>
+                    <span>🔄 Procesando<span class="processing-dots">...</span></span>
                 </div>
             </form>
             <p id="error-message" class="hidden" role="alert" aria-live="polite"></p>
