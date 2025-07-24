@@ -4,14 +4,30 @@
       <stop offset="0%" style="stop-color:#00a99d;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#00d4c5;stop-opacity:1" />
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
   
-  <!-- Fondo -->
-  <rect width="32" height="32" rx="6" fill="#050810" stroke="url(#grad)" stroke-width="2"/>
+  <!-- Fondo con border -->
+  <rect width="32" height="32" rx="8" fill="#050810" stroke="url(#grad)" stroke-width="1.5"/>
   
-  <!-- Rayo principal -->
-  <path d="M12 6 L20 16 L16 16 L20 26 L12 16 L16 16 Z" fill="url(#grad)" stroke="#ffffff" stroke-width="0.5"/>
+  <!-- Rayo principal con efecto glow -->
+  <path d="M11 7 L19 15 L15.5 15 L21 25 L13 17 L16.5 17 Z" 
+        fill="url(#grad)" 
+        filter="url(#glow)" 
+        stroke="#ffffff" 
+        stroke-width="0.3"/>
   
-  <!-- Texto pequeño "V" -->
-  <text x="16" y="28" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#00a99d">V</text>
+  <!-- Letra "V" estilizada -->
+  <text x="16" y="29" 
+        font-family="Arial, sans-serif" 
+        font-size="7" 
+        font-weight="bold" 
+        text-anchor="middle" 
+        fill="#00a99d">V</text>
 </svg>

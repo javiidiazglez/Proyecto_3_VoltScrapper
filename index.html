@@ -12,9 +12,8 @@ permalink: /
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     
-    <!-- Favicon EMBEBIDO - Solución definitiva sin caché -->
-    <link rel="icon" href="data:image/x-icon;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKykrLQAAUXcUXQ" type="image/x-icon">
-    <link rel="shortcut icon" href="data:image/x-icon;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKykrLQAAUXcUXQ" type="image/x-icon">
+    <!-- Favicon SVG - Moderno y vectorial -->
+    <link rel="icon" href="{{ site.baseurl }}/favicon.svg" type="image/svg+xml">
     
     <meta name="description" content="{{ page.description }}">
     <meta name="author" content="Proyecto 3 - Grupo 2. TanDEM">
@@ -31,18 +30,6 @@ permalink: /
     <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
     <meta property="twitter:title" content="{{ page.title }}">
     <meta property="twitter:description" content="{{ page.description }}">
-
-    <!-- Favicon - MÚLTIPLES MÉTODOS para garantizar compatibilidad -->
-    <!-- SVG moderno (funciona siempre) -->
-    <link rel="icon" href="{{ site.baseurl }}/favicon.svg" type="image/svg+xml">
-    <!-- ICO tradicional embebido -->
-    <link rel="icon" href="data:image/x-icon;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKykrLQAAUXcUXQ" type="image/x-icon">
-    <!-- Fallback con archivos -->
-    <link rel="icon" href="{{ site.baseurl }}/favicon-v2.ico?v={{ site.time | date: '%s' }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon-v2.ico?v={{ site.time | date: '%s' }}" type="image/x-icon">
-    <!-- Apple y otros dispositivos -->
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon-v2.jpg?v={{ site.time | date: '%s' }}">
-    <meta name="msapplication-TileImage" content="{{ site.baseurl }}/favicon-v2.jpg?v={{ site.time | date: '%s' }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
