@@ -194,14 +194,6 @@ permalink: /
             box-shadow: 0 0 10px rgba(0, 169, 157, 0.5);
         }
 
-        #email:invalid {
-            border-color: var(--error-color);
-        }
-
-        #email:valid {
-            border-color: var(--success-color);
-        }
-
         #generate-button {
             display: inline-flex;
             align-items: center;
@@ -550,10 +542,10 @@ permalink: /
             <section class="form-section">
                 <form id="report-form" action="#" method="post" role="form">
                 <label for="company-name">Organización a Analizar:</label>
-                <input type="text" id="company-name" placeholder="Ej: Microsoft Corporation " required
+                <input type="text" id="company-name" placeholder="Ej: Lab Voltaire " required
                     autocomplete="off">
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" placeholder="Ej: tu@empresa.com" required
+                <input type="email" id="email" placeholder="Ej: correo@gmail.com" required
                     autocomplete="email">
                 <button type="submit" id="generate-button" aria-label="Generar análisis empresarial">
                     <span id="button-text">Generar Análisis</span>
@@ -931,15 +923,26 @@ permalink: /
             emailInput.addEventListener('input', debounce((e) => {
                 const value = e.target.value.trim();
                 logActivity('email_changed', { value });
-                // Validación visual en tiempo real
-                if (value && !isValidEmail(value)) {
-                    e.target.style.borderColor = 'var(--error-color)';
-                } else if (value && isValidEmail(value)) {
-                    e.target.style.borderColor = 'var(--success-color)';
+                // Solo validación visual si hay texto
+                if (value.length > 0) {
+                    if (!isValidEmail(value)) {
+                        e.target.style.borderColor = 'var(--error-color)';
+                    } else {
+                        e.target.style.borderColor = 'var(--success-color)';
+                    }
                 } else {
+                    // Si está vacío, color normal
                     e.target.style.borderColor = 'var(--border-color)';
                 }
             }, 300));
+
+            // Resetear color cuando pierde el foco si está vacío
+            emailInput.addEventListener('blur', (e) => {
+                const value = e.target.value.trim();
+                if (value.length === 0) {
+                    e.target.style.borderColor = 'var(--border-color)';
+                }
+            });
 
             // Funcionalidades de accesibilidad
             document.addEventListener('keydown', (e) => {
