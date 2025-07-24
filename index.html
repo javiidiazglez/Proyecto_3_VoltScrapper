@@ -242,24 +242,18 @@ permalink: /
         }
 
         /* --- ÁREA DEL REPORTE (IFRAME) --- */
-        #report-container {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
-        }
+        /* Estilos de report-container definidos más abajo para mejor organización */
 
         #report-container.visible {
             opacity: 1;
-            max-height: 1000px;
-            /* Suficientemente grande */
+            max-height: 2000px; /* Más altura para el documento A4 */
             margin-top: 2rem;
         }
 
         #report-iframe {
             width: 100%;
-            height: 842px; /* Altura similar a A4 (842px) */
-            min-height: 800px;
+            height: 1100px; /* Altura mayor para A4 completo */
+            min-height: 1000px;
             border: none;
             border-radius: 10px;
             background-color: #fff;
@@ -323,18 +317,6 @@ permalink: /
             transform: translateY(0);
         }
 
-        .print-btn {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
-
-        .print-btn:hover {
-            background: linear-gradient(135deg, #5b5af6, #9333ea);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
-        }
-
         /* --- ANIMACIÓN DE PROCESANDO --- */
         .processing-message {
             display: flex;
@@ -384,8 +366,20 @@ permalink: /
             padding: 8px;
             background: var(--card-background);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            max-width: 1200px; /* Ancho máximo para simular A4 */
+            max-width: 90vw; /* Usar 90% del ancho de la pantalla */
+            width: 100%;
             margin: 0 auto; /* Centrar el iframe */
+        }
+
+        /* Contenedor de resultados más ancho que el formulario */
+        #report-container {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
+            width: 100vw; /* Ancho completo de la pantalla */
+            margin-left: calc(-50vw + 50%); /* Centrar y expandir */
+            padding: 0 2rem; /* Padding para que no toque los bordes */
         }
 
         @media (max-width: 768px) {
@@ -405,14 +399,20 @@ permalink: /
             }
 
             /* Estilos responsivos para iframe */
+            #report-container {
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                padding: 0 1rem; /* Menos padding en móviles */
+            }
+
             #iframe-wrapper {
-                max-width: 100%;
+                max-width: 95vw; /* Más ancho en móviles */
                 padding: 4px;
             }
 
             #report-iframe {
-                height: 600px; /* Altura menor en móviles */
-                min-height: 500px;
+                height: 700px; /* Altura ajustada para móviles */
+                min-height: 600px;
             }
 
             .processing-message {
@@ -510,9 +510,6 @@ permalink: /
                         <a id="docs-link" href="#" target="_blank" rel="noopener noreferrer" class="docs-button">
                             📑 Abrir en Google Docs
                         </a>
-                        <button id="print-button" class="docs-button print-btn">
-                            🖨️ Imprimir
-                        </button>
                     </div>
                 </div>
             </div>
@@ -541,7 +538,6 @@ permalink: /
             const errorMessage = document.getElementById('error-message');
             const docsActions = document.getElementById('docs-actions');
             const docsLink = document.getElementById('docs-link');
-            const printButton = document.getElementById('print-button');
 
             const webhookUrl = CONFIG.WEBHOOK_URL;
 
@@ -694,39 +690,6 @@ permalink: /
                 
                 // Mostrar el contenedor
                 reportContainer.classList.add('visible');
-                
-                // Configurar el botón de imprimir
-                printButton.onclick = () => {
-                    try {
-                        // Método mejorado para imprimir Google Docs
-                        // Crear una nueva ventana con el documento para impresión
-                        const printWindow = window.open(webViewLink, '_blank', 'width=1200,height=900,scrollbars=yes,resizable=yes');
-                        
-                        if (printWindow) {
-                            // Esperar a que se cargue la ventana y después mostrar el diálogo de impresión
-                            printWindow.onload = () => {
-                                setTimeout(() => {
-                                    printWindow.print();
-                                }, 1000);
-                            };
-                            
-                            // Fallback si onload no funciona
-                            setTimeout(() => {
-                                try {
-                                    printWindow.print();
-                                } catch (e) {
-                                    console.log('Fallback de impresión ejecutado');
-                                }
-                            }, 2000);
-                        } else {
-                            // Si no se puede abrir la ventana, usar el método original
-                            window.open(webViewLink, '_blank');
-                        }
-                    } catch (error) {
-                        console.log('Error al imprimir, abriendo en nueva ventana');
-                        window.open(webViewLink, '_blank');
-                    }
-                };
                 
                 logActivity('google_docs_report_displayed', { webViewLink });
             }
