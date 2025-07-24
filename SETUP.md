@@ -14,7 +14,7 @@ git add .
 git commit -m "Configuración inicial para GitHub Pages"
 
 # Agregar remote origin
-git remote add origin https://github.com/Kephril/Proyecto_3_Scrapper.git
+git remote add origin https://github.com/javiidiazglez/Proyecto_3_VoltScrapper.git
 
 # Subir a GitHub
 git push -u origin main
@@ -46,8 +46,8 @@ El archivo `.github/workflows/pages.yml` ya está configurado para:
 ### 5. URLs de acceso
 
 Una vez configurado, tu sitio estará disponible en:
-- **URL principal**: https://kephril.github.io/Proyecto_3_Scrapper/
-- **Configuración**: https://kephril.github.io/Proyecto_3_Scrapper/config/
+- **URL principal**: https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/
+- **Configuración**: https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/config/
 
 ### 6. Actualizar el sitio
 
@@ -80,7 +80,7 @@ Si el sitio no carga:
 ## 📁 Estructura de archivos para GitHub Pages
 
 ```
-Proyecto_3_Scrapper/
+Proyecto_3_VoltScrapper/
 ├── index.html              # Página principal
 ├── _config.yml             # Configuración Jekyll
 ├── Gemfile                 # Dependencias Ruby

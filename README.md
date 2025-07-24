@@ -3,7 +3,7 @@
 
 <div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_Scrapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
 
 </div>
 
@@ -14,7 +14,7 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 | 🚀 **Acceso** | 🌐 **Enlace** |
 |---------------|---------------|
-| **Sitio en Vivo** | **[Ver Proyecto](https://javiidiazglez.github.io/Proyecto_3_Scrapper/)** |
+| **Sitio en Vivo** | **[Ver Proyecto](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)** |
 
 
 ## 👥 Equipo
@@ -65,7 +65,7 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 
 ### 🎯 Proceso de Análisis Empresarial
 
-1. **🌐 Accede al sitio**: [javiidiazglez.github.io/Proyecto_3_Scrapper](https://javiidiazglez.github.io/Proyecto_3_Scrapper/)
+1. **🌐 Accede al sitio**: [javiidiazglez.github.io/Proyecto_3_VoltScrapper](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
 2. **📝 Introduce el nombre**: Escribe el nombre de la empresa a analizar
 3. **🚀 Genera el análisis**: Haz clic en "Generar Análisis" 
 4. **⏳ Espera el procesamiento**: El sistema procesará la información en tiempo real
@@ -81,7 +81,7 @@ Para desplegar el proyecto:
 ## 📄 Arquitectura del Proyecto
 
 ```
-📁 Proyecto_3_Scrapper/
+📁 Proyecto_3_VoltScrapper/
 ├── 🌐 index.html              # Página principal
 ├── 🧪 tests/                  # Suite de testing
 │   ├── test-unico.js          # 31 pruebas automatizadas
@@ -127,8 +127,8 @@ Para desplegar el proyecto:
 
 **⭐ Si te gusta este proyecto, ¡dale una estrella! ⭐**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Proyecto_3_Scrapper-181717?logo=github)](https://github.com/javiidiazglez/Proyecto_3_Scrapper)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Ver_Sitio-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_Scrapper/)
+[![GitHub](https://img.shields.io/badge/GitHub-Proyecto_3_VoltScrapper-181717?logo=github)](https://github.com/javiidiazglez/Proyecto_3_VoltScrapper)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Ver_Sitio-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
 
 **Desarrollado con ❤️ por el equipo TanDEM Grupo 2**
 

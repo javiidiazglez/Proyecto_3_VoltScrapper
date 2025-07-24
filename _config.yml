@@ -2,8 +2,8 @@
 title: "Generador Análisis Empresarial"
 description: "Generador de reportes de inteligencia de negocio e investigación corporativa en tiempo real"
 author: "Proyecto 3 - Grupo 2. TanDEM"
-baseurl: "/Proyecto_3_Scrapper"
-url: "https://kephril.github.io"
+baseurl: "/Proyecto_3_VoltScrapper"
+url: "https://javiidiazglez.github.io"
 
 # Configuración de Jekyll
 markdown: kramdown
@@ -28,8 +28,8 @@ exclude:
   - README.md
 
 # Configuración de GitHub Pages
-repository: "Kephril/Proyecto_3_Scrapper"
-github_username: "Kephril"
+repository: "javiidiazglez/Proyecto_3_VoltScrapper"
+github_username: "javiidiazglez"
 
 # Configuración de SEO
 lang: es

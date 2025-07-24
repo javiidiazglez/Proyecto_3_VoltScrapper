@@ -31,7 +31,7 @@ Ver [SECURITY.md](./SECURITY.md) para más detalles.
 # Configuración automática
 source: main branch
 build: Jekyll
-domain: javiidiazglez.github.io/Proyecto_3_Scrapper
+domain: javiidiazglez.github.io/Proyecto_3_VoltScrapper
 ssl: Habilitado (HTTPS)
 ```
 
@@ -102,7 +102,7 @@ node tests/coverage-report.js
 
 ### Estructura de Archivos
 ```
-📁 Proyecto_3_Scrapper/
+📁 Proyecto_3_VoltScrapper/
 ├── 🌐 index.html              # Aplicación principal
 ├── ⚙️ _config.yml             # Configuración Jekyll
 ├── 💎 Gemfile                 # Dependencias Ruby
@@ -147,7 +147,7 @@ gem "jekyll-sitemap"
 ### Verificación del Sistema
 ```bash
 # Verificar estado del sitio
-curl -I https://javiidiazglez.github.io/Proyecto_3_Scrapper/
+curl -I https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/
 
 # Probar webhook
 curl -X POST \

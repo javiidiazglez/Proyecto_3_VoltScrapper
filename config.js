@@ -14,7 +14,7 @@ const CONFIG = {
     ENVIRONMENT: 'production',
     
     // URLs del proyecto
-    GITHUB_PAGES_URL: 'https://javiidiazglez.github.io/Proyecto_3_Scrapper/',
+    GITHUB_PAGES_URL: 'https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/',
     
     // Configuración de la aplicación
     API_TIMEOUT: 30000, // 30 segundos

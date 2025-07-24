@@ -24,6 +24,6 @@ echo 🔄 Enviando cambios a GitHub...
 git push origin main
 
 echo ✅ Despliegue completado!
-echo 🌐 Tu sitio estará disponible en: https://kephril.github.io/Proyecto_3_Scrapper/
+echo 🌐 Tu sitio estará disponible en: https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/
 echo ⏳ Puede tardar unos minutos en actualizarse
 pause
