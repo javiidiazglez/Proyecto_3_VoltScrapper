@@ -256,20 +256,14 @@ permalink: /
             margin-top: 2rem;
         }
 
-        #iframe-wrapper {
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 5px;
-            background: var(--card-background);
-        }
-
         #report-iframe {
             width: 100%;
-            height: 600px;
+            height: 842px; /* Altura similar a A4 (842px) */
+            min-height: 800px;
             border: none;
             border-radius: 10px;
             background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* --- NUEVA SECCIÓN DE ACCIONES DE GOOGLE DOCS --- */
@@ -332,11 +326,66 @@ permalink: /
         .print-btn {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
         }
 
         .print-btn:hover {
             background: linear-gradient(135deg, #5b5af6, #9333ea);
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* --- ANIMACIÓN DE PROCESANDO --- */
+        .processing-message {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--card-background), rgba(0, 169, 157, 0.1));
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            margin-top: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0, 169, 157, 0.2);
+        }
+
+        .processing-spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(0, 169, 157, 0.3);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: processingSpinner 1s linear infinite;
+        }
+
+        @keyframes processingSpinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .processing-dots {
+            color: var(--accent-color);
+            font-weight: bold;
+            animation: processingDots 1.5s ease-in-out infinite;
+        }
+
+        @keyframes processingDots {
+            0%, 20% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* --- MEJORAS DEL IFRAME --- */
+        #iframe-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 169, 157, 0.2);
+            padding: 8px;
+            background: var(--card-background);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            max-width: 1200px; /* Ancho máximo para simular A4 */
+            margin: 0 auto; /* Centrar el iframe */
         }
 
         @media (max-width: 768px) {
@@ -353,6 +402,23 @@ permalink: /
                 flex: 1;
                 justify-content: center;
                 min-width: 140px;
+            }
+
+            /* Estilos responsivos para iframe */
+            #iframe-wrapper {
+                max-width: 100%;
+                padding: 4px;
+            }
+
+            #report-iframe {
+                height: 600px; /* Altura menor en móviles */
+                min-height: 500px;
+            }
+
+            .processing-message {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
             }
         }
 
@@ -423,6 +489,16 @@ permalink: /
                 </button>
             </form>
             <p id="error-message" class="hidden" role="alert" aria-live="polite"></p>
+            
+            <!-- Mensaje de procesando -->
+            <div id="processing-message" class="processing-message hidden" role="status" aria-live="polite">
+                <div class="processing-spinner"></div>
+                <span>🔄 Procesando su solicitud<span class="processing-dots">...</span></span>
+                <br>
+                <small style="opacity: 0.8; margin-top: 0.5rem; display: block;">
+                    ⏱️ El análisis puede tardar entre 30 segundos y 2 minutos. Por favor, manténgase en la página.
+                </small>
+            </div>
             </section>
         </main>
 
@@ -554,10 +630,21 @@ permalink: /
 
             function setLoadingState(isLoading) {
                 generateButton.disabled = isLoading;
-                buttonText.innerHTML = isLoading ? '<div class="spinner"></div>Procesando...' : 'Generar Reporte';
+                buttonText.innerHTML = isLoading ? '<div class="spinner"></div>Procesando...' : 'Generar Análisis';
+                
+                // Mostrar/ocultar mensaje de procesando
+                const processingMessage = document.getElementById('processing-message');
+                if (isLoading) {
+                    processingMessage.classList.remove('hidden');
+                } else {
+                    processingMessage.classList.add('hidden');
+                }
             }
 
             function showSuccess(message) {
+                const processingMessage = document.getElementById('processing-message');
+                processingMessage.classList.add('hidden');
+                
                 errorMessage.textContent = message;
                 errorMessage.style.color = '#22c55e';
                 errorMessage.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
@@ -567,6 +654,9 @@ permalink: /
             }
 
             function showWarning(message) {
+                const processingMessage = document.getElementById('processing-message');
+                processingMessage.classList.add('hidden');
+                
                 errorMessage.textContent = message;
                 errorMessage.style.color = '#f59e0b';
                 errorMessage.style.backgroundColor = 'rgba(245, 158, 11, 0.1)';
@@ -576,6 +666,8 @@ permalink: /
             }
 
             function showError(message) {
+                const processingMessage = document.getElementById('processing-message');
+                processingMessage.classList.add('hidden');
                 errorMessage.textContent = message;
                 errorMessage.style.color = '#ff8a8a';
                 errorMessage.style.backgroundColor = 'rgba(255, 77, 77, 0.1)';
@@ -606,16 +698,32 @@ permalink: /
                 // Configurar el botón de imprimir
                 printButton.onclick = () => {
                     try {
-                        // Intentar imprimir el contenido del iframe
-                        const iframeWindow = iframe.contentWindow;
-                        if (iframeWindow) {
-                            iframeWindow.print();
+                        // Método mejorado para imprimir Google Docs
+                        // Crear una nueva ventana con el documento para impresión
+                        const printWindow = window.open(webViewLink, '_blank', 'width=1200,height=900,scrollbars=yes,resizable=yes');
+                        
+                        if (printWindow) {
+                            // Esperar a que se cargue la ventana y después mostrar el diálogo de impresión
+                            printWindow.onload = () => {
+                                setTimeout(() => {
+                                    printWindow.print();
+                                }, 1000);
+                            };
+                            
+                            // Fallback si onload no funciona
+                            setTimeout(() => {
+                                try {
+                                    printWindow.print();
+                                } catch (e) {
+                                    console.log('Fallback de impresión ejecutado');
+                                }
+                            }, 2000);
                         } else {
-                            // Si no se puede acceder al iframe, abrir Google Docs en nueva ventana para imprimir
+                            // Si no se puede abrir la ventana, usar el método original
                             window.open(webViewLink, '_blank');
                         }
                     } catch (error) {
-                        console.log('Error al imprimir desde iframe, abriendo en nueva ventana');
+                        console.log('Error al imprimir, abriendo en nueva ventana');
                         window.open(webViewLink, '_blank');
                     }
                 };
@@ -646,6 +754,9 @@ permalink: /
             }
 
             function hideError() {
+                const processingMessage = document.getElementById('processing-message');
+                processingMessage.classList.add('hidden');
+                
                 errorMessage.classList.add('hidden');
                 errorMessage.textContent = '';
                 // Resetear estilos a los originales (error)
