@@ -610,6 +610,11 @@ permalink: /
                     <span>⚡ Generando análisis<span class="processing-dots">...</span><br>
                     <small style="font-size: 0.75em; opacity: 0.8;">Por favor, espera...</small></span>
                 </div>
+                <!-- Mensaje informativo sobre el correo -->
+                <div id="email-info-message" class="processing-message hidden" style="position: static; margin-top: 1rem; background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05)); border-color: rgba(34, 197, 94, 0.4);">
+                    <span style="color: #22c55e;">📧 Este proceso puede tardar varios minutos.<br>
+                    <small style="font-size: 0.75em; opacity: 0.9;">También te enviaremos el informe por correo electrónico.</small></span>
+                </div>
             </form>
             <p id="error-message" class="hidden" role="alert" aria-live="polite"></p>
             </section>
@@ -664,6 +669,34 @@ permalink: /
 
             const webhookUrl = CONFIG.WEBHOOK_URL;
 
+            // Función para hacer fetch con timeout personalizado muy largo (hasta 30 minutos)
+            async function fetchWithLongTimeout(url, options, timeoutMs = 30 * 60 * 1000) {
+                // Crear AbortController para manejar timeout manual
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => {
+                    controller.abort();
+                }, timeoutMs);
+
+                try {
+                    // Hacer fetch con signal para abort y keepalive para conexiones largas
+                    const response = await fetch(url, {
+                        ...options,
+                        signal: controller.signal,
+                        keepalive: true
+                    });
+                    
+                    clearTimeout(timeoutId);
+                    return response;
+                } catch (error) {
+                    clearTimeout(timeoutId);
+                    
+                    if (error.name === 'AbortError') {
+                        throw new Error(`timeout: La solicitud tardó más de ${timeoutMs / 1000 / 60} minutos`);
+                    }
+                    throw error;
+                }
+            }
+
             reportForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const companyName = companyNameInput.value.trim();
@@ -695,14 +728,12 @@ permalink: /
                     console.log('Enviando petición a:', webhookUrl);
                     console.log('Datos:', JSON.stringify({ company_name: companyName, email: email }));
                     
-                    // Fetch SIN timeout - permite procesos largos de 3-5 minutos
-                    const response = await fetch(webhookUrl, {
+                    // Usar fetch con manejo de timeouts personalizado para esperar hasta 30 minutos
+                    const response = await fetchWithLongTimeout(webhookUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ company_name: companyName, email: email }),
-                        // SIN timeout - permitir procesos largos
-                        keepalive: true
-                    });
+                        body: JSON.stringify({ company_name: companyName, email: email })
+                    }, 30 * 60 * 1000); // 30 minutos máximo
 
                     console.log('Respuesta recibida. Status:', response.status, 'StatusText:', response.statusText);
 
@@ -749,8 +780,10 @@ permalink: /
                 } catch (error) {
                     console.error('Error al generar el reporte:', error);
                     
-                    if (error.message.includes('Failed to fetch')) {
-                        showWarning('⚠️ Ha habido un error de red a la hora de conectarse con la webhook y traer los datos.');
+                    if (error.message.includes('Failed to fetch') || error.message.includes('fetch')) {
+                        showWarning('⚠️ Ha habido un error de red. Revisa tu bandeja de entrada por si recibes el informe por correo.');
+                    } else if (error.message.includes('timeout')) {
+                        showWarning('⏱️ El proceso está tardando más de lo esperado. Revisa tu bandeja de entrada, te enviaremos el informe por correo.');
                     } else if (error.message.includes('no scenario listening')) {
                         showWarning('⚙️ El escenario de make no está escuchando.');
                     } else {
@@ -770,13 +803,17 @@ permalink: /
                 
                 // Mostrar/ocultar mensaje de procesando
                 const processingMessage = document.getElementById('processing-message');
+                const emailInfoMessage = document.getElementById('email-info-message');
+                
                 if (isLoading) {
                     processingMessage.classList.remove('hidden');
+                    emailInfoMessage.classList.remove('hidden');
                     // Iniciar contador de tiempo
                     processingStartTime = Date.now();
                     startProcessingTimer();
                 } else {
                     processingMessage.classList.add('hidden');
+                    emailInfoMessage.classList.add('hidden');
                     // Parar contador de tiempo
                     if (processingTimer) {
                         clearInterval(processingTimer);
@@ -809,7 +846,9 @@ permalink: /
                 }
                 
                 const processingMessage = document.getElementById('processing-message');
+                const emailInfoMessage = document.getElementById('email-info-message');
                 processingMessage.classList.add('hidden');
+                emailInfoMessage.classList.add('hidden');
                 
                 errorMessage.textContent = message;
                 errorMessage.style.color = '#22c55e';
@@ -827,7 +866,9 @@ permalink: /
                 }
                 
                 const processingMessage = document.getElementById('processing-message');
+                const emailInfoMessage = document.getElementById('email-info-message');
                 processingMessage.classList.add('hidden');
+                emailInfoMessage.classList.add('hidden');
                 
                 errorMessage.textContent = message;
                 errorMessage.style.color = '#f59e0b';
@@ -845,7 +886,9 @@ permalink: /
                 }
                 
                 const processingMessage = document.getElementById('processing-message');
+                const emailInfoMessage = document.getElementById('email-info-message');
                 processingMessage.classList.add('hidden');
+                emailInfoMessage.classList.add('hidden');
                 errorMessage.textContent = message;
                 errorMessage.style.color = '#ff8a8a';
                 errorMessage.style.backgroundColor = 'rgba(255, 77, 77, 0.1)';
@@ -973,7 +1016,10 @@ permalink: /
 
             function hideError() {
                 const processingMessage = document.getElementById('processing-message');
+                const emailInfoMessage = document.getElementById('email-info-message');
+                
                 processingMessage.classList.add('hidden');
+                emailInfoMessage.classList.add('hidden');
                 
                 errorMessage.classList.add('hidden');
                 errorMessage.textContent = '';
