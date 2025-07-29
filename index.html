@@ -770,9 +770,11 @@ permalink: /
                     if (response.status >= 200 && response.status < 300) {
                         // Status 2xx = éxito (200, 201, 202, etc.)
                         const responseText = await response.text();
+                        console.log('📥 Respuesta recibida:', responseText);
                         
                         if (responseText.trim() === '') {
                             // Respuesta vacía = datos enviados correctamente, procesamiento asíncrono
+                            console.log('❌ Respuesta vacía - no hay datos');
                             showSuccess('✅ Datos enviados correctamente. El análisis se está procesando en segundo plano. El reporte estará disponible próximamente.');
                             return;
                         }
@@ -780,20 +782,43 @@ permalink: /
                         let data;
                         try {
                             data = JSON.parse(responseText);
+                            console.log('📊 Datos parseados:', data);
                         } catch (parseError) {
                             // Si no es JSON válido pero el status es 2xx, considerar éxito
+                            console.log('❌ Error parseando JSON:', parseError, 'Texto recibido:', responseText);
                             showSuccess('✅ Datos enviados correctamente. El análisis se está procesando.');
                             return;
                         }
 
                         // Verificar si la respuesta contiene un WebViewLink de Google Docs
+                        console.log('🔍 Buscando WebViewLink en:', Object.keys(data || {}));
+                        
+                        // Buscar WebViewLink de diferentes maneras
+                        let webViewLink = null;
                         if (data && data.WebViewLink) {
-                            displayGoogleDocsReport(data.WebViewLink);
+                            webViewLink = data.WebViewLink;
+                        } else if (data && data.webViewLink) {
+                            webViewLink = data.webViewLink;
+                        } else if (data && data.webviewlink) {
+                            webViewLink = data.webviewlink;
+                        } else if (data && data.link) {
+                            webViewLink = data.link;
+                        } else if (data && data.url) {
+                            webViewLink = data.url;
+                        }
+                        
+                        console.log('🔗 WebViewLink extraído:', webViewLink);
+                        
+                        if (webViewLink) {
+                            console.log('✅ WebViewLink encontrado, llamando displayGoogleDocsReport');
+                            displayGoogleDocsReport(webViewLink);
                         } else if (data && data.docu) {
                             // Mantener compatibilidad con el formato anterior
+                            console.log('✅ Formato legacy encontrado:', data.docu);
                             displayReport(data.docu);
                         } else {
                             // Datos enviados pero sin documento inmediato
+                            console.log('❌ No se encontró WebViewLink en ningún formato. Data completa:', JSON.stringify(data, null, 2));
                             showSuccess('✅ Solicitud procesada correctamente. El reporte se generará próximamente.');
                         }
                     } else if (response.status === 404) {
@@ -927,12 +952,35 @@ permalink: /
             }
 
             function displayGoogleDocsReport(webViewLink) {
+                console.log('🎯 Ejecutando displayGoogleDocsReport con URL:', webViewLink);
+                
+                // Verificar que los elementos existan
+                if (!iframeWrapper) {
+                    console.error('❌ iframeWrapper no encontrado');
+                    return;
+                }
+                if (!docsActions) {
+                    console.error('❌ docsActions no encontrado');
+                    return;
+                }
+                if (!docsLink) {
+                    console.error('❌ docsLink no encontrado');
+                    return;
+                }
+                if (!reportContainer) {
+                    console.error('❌ reportContainer no encontrado');
+                    return;
+                }
+                
+                console.log('✅ Todos los elementos DOM encontrados');
+                
                 // Limpiar contenido anterior
                 iframeWrapper.innerHTML = '';
                 docsActions.classList.remove('hidden');
                 
                 // Configurar el enlace a Google Docs
                 docsLink.href = webViewLink;
+                console.log('🔗 Enlace configurado en docsLink:', docsLink.href);
                 
                 // Modificar la URL para mostrar SOLO el documento
                 let cleanedUrl = webViewLink;
@@ -962,6 +1010,8 @@ permalink: /
                 const separator = cleanedUrl.includes('?') ? '&' : '?';
                 cleanedUrl += separator + params.join('&');
                 
+                console.log('🛠️ URL limpia generada:', cleanedUrl);
+                
                 // Crear el iframe con el WebViewLink modificado
                 const iframe = document.createElement('iframe');
                 iframe.id = 'report-iframe';
@@ -969,6 +1019,8 @@ permalink: /
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('scrolling', 'no');
                 iframe.setAttribute('title', 'Reporte de Análisis Empresarial en Google Docs');
+                
+                console.log('📄 Iframe creado con src:', iframe.src);
                 
                 // Agregar eventos para forzar vista limpia del documento
                 iframe.onload = () => {
@@ -1015,15 +1067,18 @@ permalink: /
                         iframeDoc.head.appendChild(style);
                         console.log('CSS aplicado para mostrar solo el documento');
                     } catch (e) {
-                        console.log('No se puede modificar el iframe (CORS) - usando URL limpia');
+                        console.log('⚠️ No se puede modificar el iframe (CORS):', e);
                     }
                 };
                 
+                console.log('➕ Agregando iframe al wrapper');
                 iframeWrapper.appendChild(iframe);
                 
+                console.log('👁️ Mostrando contenedor del reporte');
                 // Mostrar el contenedor
                 reportContainer.classList.add('visible');
                 
+                console.log('✅ displayGoogleDocsReport completado exitosamente');
                 logActivity('google_docs_report_displayed', { webViewLink: cleanedUrl });
             }
 
