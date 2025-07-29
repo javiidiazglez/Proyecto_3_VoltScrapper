@@ -364,19 +364,20 @@ permalink: /
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 0.75rem 1.25rem;
+            padding: 1rem 1.5rem;
             background: linear-gradient(135deg, var(--card-background), rgba(0, 169, 157, 0.1));
             border: 2px solid var(--accent-color);
-            border-radius: 10px;
+            border-radius: 12px;
             color: var(--text-color);
             font-weight: 500;
             box-shadow: 0 4px 15px rgba(0, 169, 157, 0.2);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             position: absolute;
             left: calc(100% + 1rem);
             top: 50%;
             transform: translateY(-50%);
             white-space: nowrap;
+            min-width: 200px;
         }
 
         /* Contenedor del formulario con posición relativa para el positioning absoluto */
@@ -606,7 +607,8 @@ permalink: /
                 <!-- Mensaje de procesando al lado del botón -->
                 <div id="processing-message" class="processing-message hidden" role="status" aria-live="polite">
                     <div class="processing-spinner"></div>
-                    <span>🔄 Procesando<span class="processing-dots">...</span></span>
+                    <span>⚡ Generando análisis<span class="processing-dots">...</span><br>
+                    <small style="font-size: 0.75em; opacity: 0.8;">Esto puede tardar 3-5 minutos</small></span>
                 </div>
             </form>
             <p id="error-message" class="hidden" role="alert" aria-live="polite"></p>
@@ -693,10 +695,13 @@ permalink: /
                     console.log('Enviando petición a:', webhookUrl);
                     console.log('Datos:', JSON.stringify({ company_name: companyName, email: email }));
                     
+                    // Fetch SIN timeout - permite procesos largos de 3-5 minutos
                     const response = await fetch(webhookUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ company_name: companyName, email: email })
+                        body: JSON.stringify({ company_name: companyName, email: email }),
+                        // SIN timeout - permitir procesos largos
+                        keepalive: true
                     });
 
                     console.log('Respuesta recibida. Status:', response.status, 'StatusText:', response.statusText);
@@ -756,20 +761,53 @@ permalink: /
                 }
             });
 
+            let processingTimer;
+            let processingStartTime;
+
             function setLoadingState(isLoading) {
                 generateButton.disabled = isLoading;
-                buttonText.innerHTML = isLoading ? '<div class="spinner"></div>Procesando...' : 'Generar Análisis';
+                buttonText.innerHTML = isLoading ? '<div class="spinner"></div>Generando...' : 'Generar Análisis';
                 
                 // Mostrar/ocultar mensaje de procesando
                 const processingMessage = document.getElementById('processing-message');
                 if (isLoading) {
                     processingMessage.classList.remove('hidden');
+                    // Iniciar contador de tiempo
+                    processingStartTime = Date.now();
+                    startProcessingTimer();
                 } else {
                     processingMessage.classList.add('hidden');
+                    // Parar contador de tiempo
+                    if (processingTimer) {
+                        clearInterval(processingTimer);
+                        processingTimer = null;
+                    }
                 }
             }
 
+            function startProcessingTimer() {
+                processingTimer = setInterval(() => {
+                    const elapsed = Math.floor((Date.now() - processingStartTime) / 1000);
+                    const minutes = Math.floor(elapsed / 60);
+                    const seconds = elapsed % 60;
+                    
+                    const timeText = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+                    const messageSpan = document.querySelector('#processing-message span');
+                    
+                    if (messageSpan) {
+                        messageSpan.innerHTML = `⚡ Generando análisis<span class="processing-dots">...</span><br>
+                        <small style="font-size: 0.75em; opacity: 0.8;">Tiempo transcurrido: ${timeText}</small>`;
+                    }
+                }, 1000);
+            }
+
             function showSuccess(message) {
+                // Parar timer
+                if (processingTimer) {
+                    clearInterval(processingTimer);
+                    processingTimer = null;
+                }
+                
                 const processingMessage = document.getElementById('processing-message');
                 processingMessage.classList.add('hidden');
                 
@@ -782,6 +820,12 @@ permalink: /
             }
 
             function showWarning(message) {
+                // Parar timer
+                if (processingTimer) {
+                    clearInterval(processingTimer);
+                    processingTimer = null;
+                }
+                
                 const processingMessage = document.getElementById('processing-message');
                 processingMessage.classList.add('hidden');
                 
@@ -794,6 +838,12 @@ permalink: /
             }
 
             function showError(message) {
+                // Parar timer
+                if (processingTimer) {
+                    clearInterval(processingTimer);
+                    processingTimer = null;
+                }
+                
                 const processingMessage = document.getElementById('processing-message');
                 processingMessage.classList.add('hidden');
                 errorMessage.textContent = message;
