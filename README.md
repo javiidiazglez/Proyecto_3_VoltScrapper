@@ -5,6 +5,8 @@
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
 
+</div>
+
 ## 🌐 Sitio Web
 
 | 🚀 **Acceso** | 🌐 **Enlace** |
