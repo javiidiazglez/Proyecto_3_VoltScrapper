@@ -90,7 +90,7 @@ Una aplicación web que **genera análisis empresariales automatizados** en tiem
 
 ### 📚 **Documentación Adicional**
 - **🧪 [Testing](./tests/README.md)** - Guía completa de las 31 pruebas automatizadas
-- **📊 [Cobertura](./coverage/index.html)** - Reporte visual de cobertura de código
+- **📊 [Cobertura](./assets/images/coverage-visual.svg)** - Reporte visual de cobertura de código
 
 ---
 
@@ -120,5 +120,11 @@ Una aplicación web que **genera análisis empresariales automatizados** en tiem
 
 [![GitHub](https://img.shields.io/badge/GitHub-Proyecto_3_VoltScrapper-181717?logo=github)](https://github.com/javiidiazglez/Proyecto_3_VoltScrapper)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Ver_Sitio-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
+
+> Desarrollado con ❤️ por el equipo TanDEM Grupo 2
+
+---
+
+📌 Nota: Este proyecto utiliza un webhook externo para el procesamiento de datos empresariales.
 
 </div>
