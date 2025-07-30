@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Setup - VoltScrapper"
+description: "Guía de instalación y configuración del proyecto VoltScrapper"
+permalink: /docs/setup/
+---
+
 # 🚀 Configuración del Proyecto VoltScrapper
 
 Esta guía detalla la configuración completa del proyecto VoltScrapper, desde la instalación hasta el despliegue en GitHub Pages.

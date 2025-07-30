@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Seguridad - VoltScrapper"
+description: "Medidas de seguridad implementadas en VoltScrapper"
+permalink: /docs/security/
+---
+
 # 🔒 Seguridad - VoltScrapper
 
 **Medidas de seguridad implementadas para proteger la aplicación y los datos**

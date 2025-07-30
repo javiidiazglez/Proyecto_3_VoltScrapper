@@ -17,6 +17,9 @@ plugins:
   - jekyll-seo-tag
 
 # Configuración de compilación
+include:
+  - docs/
+
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -25,7 +28,8 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - README.md
+  - tests/
+  - coverage/
 
 # Configuración de GitHub Pages
 repository: "javiidiazglez/Proyecto_3_VoltScrapper"

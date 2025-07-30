@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Código - VoltScrapper"
+description: "Funcionalidades clave del código de VoltScrapper"
+permalink: /docs/code/
+---
+
 # 💻 Funcionalidades Clave - VoltScrapper
 
 **Las 5 funcionalidades más importantes para la demo**
