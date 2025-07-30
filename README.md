@@ -3,11 +3,7 @@
 
 <div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/) [![Jekyll](https://img.shields.io/badge/Jekyll-Ready-red)](https://jekyllrb.com/) [![TanDEM](https://img.shields.io/badge/TanDEM-Grupo%202-blue)](#) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
-
-</div>
-
-Una herramienta web moderna para generar reportes de inteligencia de negocio e investigación corporativa en tiempo real con animaciones visuales avanzadas. Desarrollado por el **Grupo 2 del TanDEM**.
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/) [![Tests](https://img.shields.io/badge/Tests-31%2F31-brightgreen)](./tests/test-unico.js) [![Coverage](https://img.shields.io/badge/Coverage-91.1%25-brightgreen)](./coverage/index.html)
 
 ## 🌐 Sitio Web
 
@@ -15,118 +11,88 @@ Una herramienta web moderna para generar reportes de inteligencia de negocio e i
 |---------------|---------------|
 | **Sitio en Vivo** | **[Ver Proyecto](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)** |
 
+## 🎯 ¿Qué es VoltScrapper?
 
-## 👥 Equipo
+Una aplicación web que **genera análisis empresariales automatizados** en tiempo real. Solo necesitas:
 
-**🎯 TanDEM - Grupo 2**
-```
-- José Javier Díaz González
-- Laura del Carmen Ilarraza Prendes  
-- Andrea San Román Río
-- Noemi Martin Garcia
-- Elvis Ebudo Nwaigwe
-```
+1. **📝 Introducir** el nombre de una empresa
+2. **📧 Poner** tu email  
+3. **⏱️ Esperar** hasta 30 minutos
+4. **📊 Recibir** un documento completo con análisis
 
-## 🚀 Características Principales
+## 🌟 Características Principales
 
-- **🎨 Interfaz moderna**: Diseño limpio y profesional con efectos visuales Matrix
-- **⚡ Análisis en tiempo real**: Generación de reportes empresariales instantáneos
-- **� Validación de email**: Campo de correo con validación regex en tiempo real
-- **📊 Iframe optimizado**: Visualización mejorada de Google Docs con mayor tamaño
-- **�📱 Responsive**: Adaptable a todos los dispositivos
-- **✨ Efectos visuales**: Animación Matrix de fondo con Canvas API
-- **🔗 Integración API**: Conectado con webhook para procesamiento de datos
-- **♿ Accesibilidad**: Cumple estándares WCAG
+### 🎨 **Interfaz Visual Atractiva**
+- **Animación Matrix** con 50 partículas conectadas
+- **Validación instantánea** de email con feedback visual
+- **Responsive design** que se adapta automáticamente
 
-## 📊 Estado de Testing
+### 🔧 **Tecnología Robusta**
+- **100% JavaScript puro** (sin frameworks)
+- **Canvas API** para la animación Matrix fluidas
+- **Responsive design** que se adapta a móviles automáticamente
 
-| 🎯 **Métrica** | 📈 **Resultado** | 🏆 **Estado** |
-|----------------|------------------|---------------|
-| **🧪 Pruebas** | 31/31 | ✅ 100% Éxito |
-| **📊 Cobertura Total** | 91.1% | 🏆 Excelente |
-| **🌐 HTML Coverage** | 100% | ✨ Perfecto |
-| **🎨 CSS Coverage** | 100% | ✨ Perfecto |
-| **⚡ JavaScript Coverage** | 77.8% | 📊 Bueno |
+### 🌐 **Integración Inteligente**
+- **Webhook con Make.com** para procesamiento automático
+- **Google Docs embebido** optimizado al 140% de ancho
+- **Timeout de 30 minutos** para análisis complejos
 
-📚 **[Ver Documentación Completa de Testing](./tests/README.md)**
+### 🔒 **Seguridad Incorporada**
+- **Protección XSS** - Elimina código malicioso de los inputs
+- **Validación robusta** - Solo acepta caracteres seguros  
+- **Headers HTTPS** - Comunicación encriptada siempre
+- **Sin credenciales** - Configuración pública y transparente
 
-## 🛠️ Stack Tecnológico
-
-### Frontend
-- **HTML5** - Estructura semántica moderna
-- **CSS3** - Variables CSS, Flexbox, Grid, Animaciones
-- **JavaScript ES6+** - Funcionalidades interactivas avanzadas
-- **Canvas API** - Animaciones de fondo dinámicas
-
-### Despliegue
-- **Jekyll** - Generador de sitios estáticos
-- **GitHub Pages** - Hosting automático
-
-## 📱 Guía de Uso
-
-### 🎯 Proceso de Análisis Empresarial
-
-1. **🌐 Accede al sitio**: [javiidiazglez.github.io/Proyecto_3_VoltScrapper](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
-2. **📝 Introduce el nombre**: Escribe el nombre de la empresa a analizar
-3. **� Introduce tu email**: Proporciona un correo electrónico válido (con validación en tiempo real)
-4. **�🚀 Genera el análisis**: Haz clic en "Generar Análisis" 
-5. **⏳ Espera el procesamiento**: El sistema procesará la información en tiempo real
-6. **📊 Revisa el reporte**: Analiza los resultados en el iframe optimizado de Google Docs
-
-## 🌐 Configuración GitHub Pages
-
-Para desplegar el proyecto:
-1. Ve a Settings > Pages en tu repositorio
-2. Selecciona "Deploy from a branch"
-3. Elige la rama `main`
-4. Guarda los cambios y espera unos minutos para que se despliegue
-
-## 📄 Arquitectura del Proyecto
+## 🏗️ **Arquitectura del Proyecto**
 
 ```
-📁 Proyecto_3_VoltScrapper/
-├── 📁 assets/                 # Recursos del proyecto
-│   └── 📁 images/             # Imágenes y gráficos
-│       ├── 🖼️ favicon.jpg      # Favicon personalizado
-│       ├── 🎨 logo.svg         # Logo del proyecto
-│       └── 📊 coverage_visual.svg # Gráfico de cobertura
-├── 📁 config/
-│   ├── config.js             # Configuración del proyecto
-│   └── jest.config.js        # Configuración de Jest
-├── 📁 docs/                   # Documentación técnica
-│   ├── 🔒 SECURITY.md         # Políticas de seguridad
-│   ├── 📖 SETUP.md            # Guía de instalación
-│   └── ⚙️ config.md           # Configuración técnica
-├── 📁 scripts/                # Scripts de automatización
-│   ├── 🧪 run-all-tests.sh    # Testing Linux/Mac
-│   ├── 🧪 run-all-tests.bat   # Testing Windows
-│   ├── 📊 view-coverage.sh    # Cobertura Linux/Mac
-│   ├── 📊 view-coverage.bat   # Cobertura Windows
-│   ├── 🚀 deploy.sh           # Deploy Linux/Mac
-│   └── 🚀 deploy.bat          # Deploy Windows
-├── 📁 tests/                  # Suite de testing
-│   ├── test-unico.js          # 31 pruebas automatizadas
-│   ├── coverage-report.js     # Generador de reportes
-│   └── README.md              # Documentación de testing
-├── 🌐 index.html               # Aplicación principal
-├── ⚙️ config.js               # Configuración del proyecto
-├── 📦 package.json            # Dependencias y scripts
-├── 🔒 .gitignore              # Control de versiones
-├── 📚 README.md               # Documentación principal
-├── 💎 Gemfile                 # Dependencias Ruby
-└── 🔄 .github/workflows/      # CI/CD automatizado
+📁 VoltScrapper/
+├── 🌐 index.html           # Aplicación principal
+├── ⚙️ config/config.js     # Configuración del webhook
+├── 🧪 tests/               # 31 pruebas automatizadas
+├── 📊 coverage/            # Reporte de cobertura 91.1%
+└── 📚 docs/                # Documentación
+    ├── CODE.md             # 💻 Funcionalidades clave
+    ├── SETUP.md            # 🔧 Instalación
+    └── SECURITY.md         # 🔒 Políticas de seguridad
 ```
 
-## 📚 Documentación Adicional
-### 📖 **Guías y Configuración**
+## 🛠️ **Tecnologías Utilizadas**
 
-- **🚀 [Instrucciones de Setup](./docs/SETUP.md)** - Cómo instalar y configurar el proyecto
-- **⚙️ [Configuración del Sistema](./docs/config.md)** - Variables y configuración de Jekyll
-- **🧪 [Documentación de Testing](./tests/README.md)** - Guía completa de las 31 pruebas automatizadas
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **APIs**: Canvas API, Fetch API, Regex
+- **Hosting**: GitHub Pages + Jekyll
+- **Automation**: Make.com webhook
+- **Testing**: Jest (31 tests, 91.1% coverage)
+- **Design**: Responsive, Mobile-first
+
+## 🚀 **Demo Rápido**
+
+1. **Abre**: [VoltScrapper](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
+2. **Escribe**: "Apple" o "Microsoft"
+3. **Email**: tu email válido
+4. **Click**: "Generar Análisis"
+5. **Observa**: Animación Matrix mientras procesa
+6. **Resultado**: Documento de análisis empresarial completo
 
 ---
 
-> 💡 **Tip**: Cada archivo contiene información detallada sobre su área específica del proyecto.
+## 📖 **Documentación**
+
+| 📄 **Archivo** | 🎯 **Propósito** | 📝 **Contenido** |
+|----------------|-------------------|-------------------|
+| **[CODE.md](docs/CODE.md)** | 💻 Funcionalidades del código | Las 5 funcionalidades más importantes explicadas |
+| **[SETUP.md](docs/SETUP.md)** | � Instalación y configuración | Cómo instalar y configurar el proyecto (pasos, comandos) |
+| **[config.md](docs/config.md)** | ⚙️ Detalles técnicos de configuración | Variables, parámetros, archivos de configuración |
+| **[SECURITY.md](docs/SECURITY.md)** | 🔒 Solo seguridad | Medidas de protección, validación, políticas de datos |
+
+### 📚 **Documentación Adicional**
+- **🧪 [Testing](./tests/README.md)** - Guía completa de las 31 pruebas automatizadas
+- **📊 [Cobertura](./coverage/index.html)** - Reporte visual de cobertura de código
+
+---
+
+> 💡 **Tip**: Cada archivo tiene un propósito específico para evitar confusión en la documentación.
 
 ## 📊 Estadísticas del Proyecto
 
@@ -153,9 +119,4 @@ Para desplegar el proyecto:
 [![GitHub](https://img.shields.io/badge/GitHub-Proyecto_3_VoltScrapper-181717?logo=github)](https://github.com/javiidiazglez/Proyecto_3_VoltScrapper)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Ver_Sitio-brightgreen)](https://javiidiazglez.github.io/Proyecto_3_VoltScrapper/)
 
-**Desarrollado con ❤️ por el equipo TanDEM Grupo 2**
-
----
-
-**📌 Nota**: Este proyecto utiliza un webhook externo para el procesamiento de datos empresariales.
 </div>

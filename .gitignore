@@ -9,13 +9,6 @@ node_modules/
 .DS_Store
 *.log
 
-# Archivos de entorno y configuración sensible
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
 # Archivos de editor
 .vscode/
 .idea/
