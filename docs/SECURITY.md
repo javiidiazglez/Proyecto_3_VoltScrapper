@@ -77,8 +77,6 @@ const response = await fetch(webhookUrl, {
 - ❌ Tokens de sesión o cookies
 - ❌ Datos de terceros sin consentimiento
 
-**🎯 Principio**: Solo datos mínimos necesarios, validados y sanitizados.
-
 ---
 
 ## 🚨 **Reporte de Vulnerabilidades**
