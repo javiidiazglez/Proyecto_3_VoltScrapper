@@ -1,10 +1,3 @@
----
-layout: default
-title: "Configuración - VoltScrapper"
-description: "Configuración técnica detallada del proyecto VoltScrapper"
-permalink: /docs/config/
----
-
 # ⚙️ Configuración del Proyecto VoltScrapper
 
 Esta página detalla toda la configuración técnica del proyecto VoltScrapper - Generador de Análisis Empresarial.
